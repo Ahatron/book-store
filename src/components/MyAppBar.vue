@@ -13,15 +13,19 @@
 
     <v-spacer></v-spacer>
 
-    <template v-if="!smAndDown">
-      <v-text-field class="d-sm-flex mr-auto w-33"
+    <template v-if="!xs">
+      <v-text-field class="d-sm-flex mr-auto w-33 mb-3"
         append-inner-icon="mdi-magnify"
         density="compact"
         label="Search books"
         variant="solo"
         hide-details
         single-line
-        @click:append-inner="''"></v-text-field>
+        @click:append-inner="''">
+        <template>
+          <slot class="px-1"></slot>
+        </template>
+      </v-text-field>
       <v-spacer></v-spacer>
     </template>
 
@@ -36,7 +40,7 @@
     </v-btn>
 
     <v-btn icon>
-      <v-icon>mdi-basket</v-icon>
+      <v-icon>mdi-cart</v-icon>
     </v-btn>
 
     <v-btn icon>
@@ -49,6 +53,6 @@
   lang="ts">
   import { useAppStore } from '@/store/app';
   import { useDisplay } from 'vuetify'
-  const { smAndDown } = useDisplay()
+  const { xs } = useDisplay()
   const appStore = useAppStore()
 </script>
