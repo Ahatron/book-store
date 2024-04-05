@@ -41,7 +41,6 @@
     <template #append>
       <div class="d-flex flex-column flex-sm-row">
         <v-btn class="ma-1"
-          size="small"
           @click="cartActive = !cartActive"
           color="secondary"
           variant="tonal">
@@ -49,7 +48,6 @@
           <v-icon v-else>mdi-cart-minus</v-icon>
         </v-btn>
         <v-btn class="ma-1"
-          size="small"
           @click="likeActive = !likeActive"
           color="secondary"
           variant="tonal">

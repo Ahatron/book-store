@@ -1,12 +1,14 @@
 <template>
   <v-app>
-    <Home />
+    <BookInfo />
   </v-app>
 </template>
 
 <script setup
   lang="ts">
-  import Home from '@/views/Home.vue';
+  // import Home from '@/views/Home.vue';
+  import BookInfo from './views/BookInfo.vue';
+
 </script>
 
 <style>

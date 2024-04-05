@@ -11,10 +11,10 @@
 
     <v-app-bar-title>Mimir</v-app-bar-title>
 
-    <v-spacer></v-spacer>
+    <v-spacer v-show="!xs"></v-spacer>
 
     <template v-if="!xs">
-      <v-text-field class="d-sm-flex mr-auto w-33 mb-3"
+      <v-text-field class="mr-md-15 w-25 mb-3"
         append-inner-icon="mdi-magnify"
         density="compact"
         label="Search books"
@@ -23,11 +23,12 @@
         single-line
         @click:append-inner="''">
         <template>
-          <slot class="px-1"></slot>
+          <slot class="px-1 "></slot>
         </template>
       </v-text-field>
       <v-spacer></v-spacer>
     </template>
+
 
     <v-btn v-else
       icon

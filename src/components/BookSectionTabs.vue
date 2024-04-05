@@ -60,8 +60,8 @@
                       <BookCard class="ma-1" />
                     </v-col>
                   </template>
-                  <BookList class="w-100"
-                    v-else />
+                  <BookList v-else
+                    class="w-100" />
                 </v-row>
               </v-window-item>
 

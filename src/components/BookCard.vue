@@ -9,7 +9,7 @@
 
 <template>
   <v-card elevation="1">
-    <v-card-item class="py-2 px-4">
+    <v-card-item class="py-2 px-3">
       <div class="d-flex justify-center my-2">
         <div class="w-75">
           <v-img aspect-ratio="0.65"
@@ -27,17 +27,15 @@
         <span class="d-flex">5<v-icon color="yellow">mdi-star</v-icon></span>
         <h4>5000тг</h4>
       </span>
-      <v-card-actions>
+      <v-card-actions class="px-0 px-sm-1">
         <v-spacer />
-        <v-btn size="small"
-          @click="cartActive = !cartActive"
+        <v-btn @click="cartActive = !cartActive"
           color="secondary"
           variant="tonal">
           <v-icon v-if="!cartActive">mdi-cart-plus</v-icon>
           <v-icon v-else>mdi-cart-minus</v-icon>
         </v-btn>
-        <v-btn size="small"
-          @click="likeActive = !likeActive"
+        <v-btn @click="likeActive = !likeActive"
           color="secondary"
           variant="tonal">
           <v-icon v-if="!likeActive"
