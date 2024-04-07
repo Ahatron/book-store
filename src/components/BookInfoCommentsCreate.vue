@@ -9,7 +9,8 @@
         </v-avatar>
       </div>
       <div class="w-100">
-        <v-textarea class="d-flex flex-column"
+        <v-textarea v-model="comment"
+          class="d-flex flex-column"
           label="Your comment"
           name="name"
           textarea
@@ -18,16 +19,16 @@
 
         <div class="d-flex align-center mb-5 ml-4">
           <span class="mr-3">Your rating:</span>
-          <v-rating :model-value="3"
+          <v-rating v-model="rating"
             size="xx-small"
             hover
             color="yellow-darken-3"></v-rating>
         </div>
       </div>
-
     </div>
 
-    <v-btn class="align-self-end"
+    <v-btn @click="bookInfoStore.addComment(comment, rating)"
+      class="align-self-end"
       color="secondary"
       variant="tonal"
       text="send"></v-btn>
@@ -35,5 +36,10 @@
 </template>
 
 <script setup>
-//
+import { useBookInfoStore, BookRating } from '@/store/book-info';
+import { ref } from 'vue';
+
+const bookInfoStore = useBookInfoStore()
+const comment = ref('')
+const rating = ref < BookRating > (5)
 </script>

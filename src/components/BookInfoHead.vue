@@ -1,7 +1,6 @@
 <template>
   <div class="d-flex flex-column align-center">
-    <BookInfoHeadImages class="w-75"
-      :images="images" />
+    <BookInfoHeadImages class="w-75" />
 
     <v-card-title primary-title>
       Atlas shrugged
@@ -25,10 +24,10 @@
     </h4>
 
     <v-card-actions class="mb-2">
-      <v-btn @click="cartActive = !cartActive"
+      <v-btn @click="bookInfoStore.cartActive = !bookInfoStore.cartActive"
         color="secondary"
         variant="tonal">
-        <template v-if="!cartActive">
+        <template v-if="!bookInfoStore.cartActive">
           <span class="mr-1"> Add to Cart</span>
           <v-icon>mdi-cart-plus</v-icon>
         </template>
@@ -38,10 +37,10 @@
         </template>
       </v-btn>
 
-      <v-btn @click="likeActive = !likeActive"
+      <v-btn @click="bookInfoStore.likeActive = !bookInfoStore.likeActive"
         color="secondary"
         variant="tonal">
-        <template v-if="!likeActive">
+        <template v-if="!bookInfoStore.likeActive">
           <span class="mr-1">Like it</span>
           <v-icon color="red">mdi-heart-outline</v-icon>
         </template>
@@ -57,15 +56,7 @@
 <script setup
   lang="ts">
   import BookInfoHeadImages from '@/components/BookInfoHeadImages.vue'
-  import { ref } from 'vue';
+  import { useBookInfoStore } from '@/store/book-info';
 
-  const images = ref([
-    'src/assets/atlas-shrugged.jpg',
-    'src/assets/atlas-shrugged.jpg',
-    'src/assets/atlas-shrugged.jpg',
-    'src/assets/atlas-shrugged.jpg',
-    'src/assets/atlas-shrugged.jpg',
-  ])
-  const likeActive = ref(false)
-  const cartActive = ref(false)
+  const bookInfoStore = useBookInfoStore()
 </script>
