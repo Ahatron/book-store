@@ -1,14 +1,3 @@
-<script setup
-  lang="ts">
-  import { ref } from 'vue';
-  import BookCard from '@/components/BookCard.vue'
-  import BookList from "@/components/BookList.vue"
-  import { useAppStore } from '@/store/app';
-  const tab = ref<null | string>(null)
-  const values = ref(['one', 'two', 'three'])
-  const appStore = useAppStore()
-</script>
-
 <template>
   <v-card rounded="0"
     color="indigo-lighten-5">
@@ -74,3 +63,12 @@
 
   </v-card>
 </template>
+<script setup lang="ts">
+import { ref } from 'vue';
+import BookCard from '@/components/BookCard.vue'
+import BookList from "@/components/BookList.vue"
+import { useAppStore } from '@/store/app';
+const tab = ref<null | string>(null)
+const values = ref(['one', 'two', 'three'])
+const appStore = useAppStore()
+</script>

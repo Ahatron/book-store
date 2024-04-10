@@ -23,12 +23,11 @@
   </div>
 </template>
 
-<script setup
-  lang="ts">
-  import { ref } from 'vue';
-  import BookImagesCarousel from '@/components/BookImagesCarousel.vue'
-  import { useBookInfoStore } from '@/store/book-info.ts'
-  const bookInfoStore = useBookInfoStore()
+<script setup lang="ts">
+import { ref } from 'vue';
+import BookImagesCarousel from '@/components/BookImagesCarousel.vue'
+import { useBookInfoStore } from '@/store/book-info'
 
-  const ImagesForShow = ref(bookInfoStore.images.slice(0, 4))
+const bookInfoStore = useBookInfoStore()
+const ImagesForShow = ref(bookInfoStore.images.slice(0, 4))
 </script>

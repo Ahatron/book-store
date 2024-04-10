@@ -14,7 +14,7 @@
     <v-spacer v-show="!xs"></v-spacer>
 
     <template v-if="!xs">
-      <v-text-field class="mr-md-15 w-25 mb-3"
+      <MyInput class="mr-md-15 w-25 mb-3"
         append-inner-icon="mdi-magnify"
         density="compact"
         label="Search books"
@@ -22,38 +22,42 @@
         hide-details
         single-line
         @click:append-inner="''">
-        <template>
-          <slot class="px-1 "></slot>
-        </template>
-      </v-text-field>
+      </MyInput>
       <v-spacer></v-spacer>
     </template>
-
-
     <v-btn v-else
       icon
       class="d-inline-flex">
       <v-icon>mdi-magnify</v-icon>
     </v-btn>
 
-    <v-btn icon>
-      <v-icon>mdi-heart</v-icon>
-    </v-btn>
+    <template v-if="appStore.isUserAuth">
+      <v-btn icon>
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
 
-    <v-btn icon>
-      <v-icon>mdi-cart</v-icon>
-    </v-btn>
+      <v-btn icon>
+        <v-icon>mdi-cart</v-icon>
+      </v-btn>
 
-    <v-btn icon>
-      <v-icon>mdi-account</v-icon>
-    </v-btn>
+      <v-btn icon>
+        <v-icon>mdi-account</v-icon>
+      </v-btn>
+    </template>
+
+    <v-btn v-else
+      class="ml-2"
+      variant="flat"
+      color="blue-accent-2"
+      append-icon="mdi-login">Login</v-btn>
 
   </v-app-bar>
 </template>
-<script setup
-  lang="ts">
-  import { useAppStore } from '@/store/app';
-  import { useDisplay } from 'vuetify'
-  const { xs } = useDisplay()
-  const appStore = useAppStore()
+<script setup lang="ts">
+import MyInput from '@/components/UI/MyInput.vue';
+import { useAppStore } from '@/store/app';
+import { useDisplay } from 'vuetify'
+const { xs } = useDisplay()
+const appStore = useAppStore()
+
 </script>

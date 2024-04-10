@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row>
+    <v-row class="h-100">
       <v-spacer />
       <v-col cols="12"
         sm="9"
