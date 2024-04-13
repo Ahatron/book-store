@@ -33,7 +33,7 @@
         <v-spacer />
         <v-btn @submit="'ok'"
           type="submit"
-          color="blue-accent-2">Registration</v-btn>
+          color="accent">Registration</v-btn>
       </div>
     </v-form>
   </Basic>

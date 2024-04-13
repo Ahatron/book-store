@@ -3,7 +3,7 @@
     <v-expansion-panels flat>
       <v-expansion-panel>
         <template #title>
-          <v-card-title class="pa-0 ma-0">More info</v-card-title>
+          <v-card-title class="pa-0 ma-0">Characteristics</v-card-title>
         </template>
         <template #text>
           <v-card-subtitle class="d-inline mr-2">Publishing house</v-card-subtitle> Alpina publisher

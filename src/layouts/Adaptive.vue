@@ -4,8 +4,8 @@
       <v-spacer />
       <v-col cols="12"
         sm="9"
-        md="7"
-        class="pa-0">
+        md="8"
+        class="pa-0 mb-14">
         <slot></slot>
       </v-col>
       <v-spacer />

@@ -48,7 +48,7 @@
     <v-btn v-else
       class="ml-2"
       variant="flat"
-      color="blue-accent-2"
+      color="accent"
       append-icon="mdi-login">Login</v-btn>
 
   </v-app-bar>

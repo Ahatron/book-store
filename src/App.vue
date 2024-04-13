@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <CreateBook />
+    <CreateAuthor />
   </v-app>
 </template>
 
@@ -9,7 +9,9 @@
 // import BookInfo from '@/views/BookInfo.vue';
 // import AuthPage from '@/views/AuthPage.vue';
 // import LoginPage from '@/views/LoginPage.vue';
-import CreateBook from '@/views/CreateBook.vue';
+// import CreateBook from '@/views/CreateBook.vue';
+// import AuthorPage from '@/views/AuthorPage.vue';
+import CreateAuthor from '@/views/CreateAuthor.vue';
 </script>
 
 <style>

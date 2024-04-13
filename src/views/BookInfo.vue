@@ -5,7 +5,7 @@
       <BookInfoHead />
 
       <v-divider class="mt-1" />
-      <BookInfoDetails />
+      <BookInfoCharacteristics />
       <v-divider class="mb-3" />
 
       <v-card-title class="w-100 d-flex">Description</v-card-title>
@@ -35,7 +35,7 @@ import Basic from '@/layouts/Basic.vue'
 import BookInfoRatings from "@/components/BookInfoRatings.vue"
 import BookInfoComments from '@/components/BookInfoComments.vue'
 import BookInfoHead from '@/components/BookInfoHead.vue'
-import BookInfoDetails from "@/components/BookInfoDetails.vue"
+import BookInfoCharacteristics from "@/components/BookInfoCharacteristics.vue"
 
 // import { useDisplay } from 'vuetify/lib/framework.mjs';
 

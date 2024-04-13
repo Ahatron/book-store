@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BookCommentsCreate />
+    <BookInfoCommentsCreate />
     <v-divider />
 
     <div class="mb-3 ml-4 d-flex align-center">
@@ -62,7 +62,7 @@
 </template>
 
 <script setup lang="ts">
-import BookCommentsCreate from '@/components/BookInfoCommentsCreate.vue'
+import BookInfoCommentsCreate from '@/components/BookInfoCommentsCreate.vue'
 import CommentPromotion from '@/components/CommentPromotion.vue'
 import { useBookInfoStore } from '@/store/book-info'
 import { ref } from 'vue'

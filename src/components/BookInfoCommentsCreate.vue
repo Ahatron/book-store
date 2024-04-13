@@ -15,7 +15,7 @@
           name="name"
           textarea
           variant="outlined"
-          rows="1" />
+          rows="3" />
 
         <div class="d-flex align-center mb-5 ml-4">
           <span class="mr-3">Your rating:</span>
@@ -35,7 +35,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useBookInfoStore, BookRating } from '@/store/book-info';
 import { ref } from 'vue';
 

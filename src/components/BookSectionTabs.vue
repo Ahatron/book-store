@@ -13,52 +13,32 @@
     </v-tabs>
 
     <v-card-item class="pa-1 pa-sm-4">
-      <div class="d-flex justify-end mb-1 mr-1">
-        <v-btn-toggle v-model="appStore.viewToggle"
-          variant="flat"
-          divided
-          color="primary">
-          <v-btn @click="appStore.viewToggle = 'grid'"
-            value="grid"
-            icon="mdi-view-grid"></v-btn>
-          <v-btn @click="appStore.viewToggle = 'list'"
-            value="list"
-            icon="mdi-view-list"></v-btn>
-        </v-btn-toggle>
-      </div>
+      <ViewToggle />
 
-      <VRow>
-        <v-spacer />
-        <VCol cols="12"
-          sm="10"
-          md="8">
-          <v-window v-model="tab">
-            <template v-for="item of values"
-              :key="item">
+      <v-window v-model="tab">
+        <template v-for="item of values"
+          :key="item">
+          <v-window-item :value="item">
+            <v-row no-gutters
+              class="py-3">
+              <template v-if="appStore.viewToggle === 'grid'">
+                <v-col class="pa-0 "
+                  cols="6"
+                  sm="3"
+                  xs="2"
+                  v-for="n in 10"
+                  :key="n">
+                  <BookCard class="border-sm rounded-0" />
+                </v-col>
+              </template>
 
-              <v-window-item :value="item">
-                <v-row no-gutters
-                  class="py-3">
-                  <template v-if="appStore.viewToggle === 'grid'">
-                    <v-col cols="6"
-                      sm="4"
-                      md="3"
-                      xs="2"
-                      v-for="n in 10"
-                      :key="n">
-                      <BookCard class="ma-1" />
-                    </v-col>
-                  </template>
-                  <BookList v-else
-                    class="w-100" />
-                </v-row>
-              </v-window-item>
-
-            </template>
-          </v-window>
-        </VCol>
-        <v-spacer />
-      </VRow>
+              <v-col v-else>
+                <BookList class="elevation-0" />
+              </v-col>
+            </v-row>
+          </v-window-item>
+        </template>
+      </v-window>
     </v-card-item>
 
   </v-card>
@@ -67,6 +47,8 @@
 import { ref } from 'vue';
 import BookCard from '@/components/BookCard.vue'
 import BookList from "@/components/BookList.vue"
+import ViewToggle from '@/components/UI/ViewToggle.vue';
+import Adaptive from '@/layouts/Adaptive.vue';
 import { useAppStore } from '@/store/app';
 const tab = ref<null | string>(null)
 const values = ref(['one', 'two', 'three'])
