@@ -7,8 +7,9 @@ const cartActive = ref(false)
 </script>
 
 <template>
-  <v-card elevation="0">
-    <v-card-item class="py-2 px-3">
+  <v-card class="pa-2"
+    elevation="0">
+    <v-card-item class="pa-0">
       <div class="d-flex justify-center my-2">
         <div class="w-75">
           <v-img aspect-ratio="0.65"
@@ -31,6 +32,7 @@ const cartActive = ref(false)
 
       <v-card-actions class="px-0 px-sm-1">
         <v-btn @click="cartActive = !cartActive"
+          class="px-0"
           color="secondary"
           variant="tonal">
           <v-icon v-if="!cartActive">mdi-cart-plus</v-icon>
@@ -38,6 +40,8 @@ const cartActive = ref(false)
         </v-btn>
         <v-spacer />
         <v-btn @click="likeActive = !likeActive"
+          class="px-0"
+          width="40"
           color="secondary"
           variant="tonal">
           <v-icon v-if="!likeActive"
@@ -47,6 +51,5 @@ const cartActive = ref(false)
         </v-btn>
       </v-card-actions>
     </v-card-item>
-
   </v-card>
 </template>

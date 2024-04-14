@@ -7,6 +7,8 @@
 
     <template v-slot:prepend>
       <v-app-bar-nav-icon @click="appStore.drawer = !appStore.drawer"></v-app-bar-nav-icon>
+      <v-tooltip activator="parent"
+        location="bottom">Categories</v-tooltip>
     </template>
 
     <v-app-bar-title>Mimir</v-app-bar-title>
@@ -17,12 +19,11 @@
       <MyInput class="mr-md-15 w-25 mb-3"
         append-inner-icon="mdi-magnify"
         density="compact"
-        label="Search books"
+        label="Search books and authors"
         variant="solo"
         hide-details
         single-line
-        @click:append-inner="''">
-      </MyInput>
+        @click:append-inner="''" />
       <v-spacer></v-spacer>
     </template>
     <v-btn v-else
@@ -32,16 +33,39 @@
     </v-btn>
 
     <template v-if="appStore.isUserAuth">
-      <v-btn icon>
+      <v-btn v-if="!appStore.isUserAdmin"
+        icon>
         <v-icon>mdi-heart</v-icon>
+        <v-tooltip activator="parent"
+          location="bottom">Liked books</v-tooltip>
       </v-btn>
 
-      <v-btn icon>
+      <v-btn v-if="!appStore.isUserAdmin"
+        icon>
         <v-icon>mdi-cart</v-icon>
+        <v-tooltip activator="parent"
+          location="bottom">Books for shopping</v-tooltip>
       </v-btn>
 
-      <v-btn icon>
+      <v-btn v-if="appStore.isUserAdmin"
+        icon>
+        <v-icon>mdi-book-plus</v-icon>
+        <v-tooltip activator="parent"
+          location="bottom">Create new book</v-tooltip>
+      </v-btn>
+
+      <v-btn v-if="appStore.isUserAdmin"
+        icon>
+        <v-icon>mdi-account-plus</v-icon>
+        <v-tooltip activator="parent"
+          location="bottom">Create new author</v-tooltip>
+      </v-btn>
+
+      <v-btn class="ml-2"
+        icon>
         <v-icon>mdi-account</v-icon>
+        <v-tooltip activator="parent"
+          location="bottom">Your profile</v-tooltip>
       </v-btn>
     </template>
 

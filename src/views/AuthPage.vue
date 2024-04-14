@@ -42,30 +42,11 @@
 <script setup lang="ts">
 import Basic from '@/layouts/Basic.vue';
 import MyInput from '@/components/UI/MyInput.vue';
+import { rules } from '@/utils/ValidationRules';
 import { ref } from 'vue';
 
 const nickname = ref<string>('')
 const password = ref<string>('')
-const rules = {
-  required: (value: string) => !!value || 'Field is required',
-  nicknameMinLength: (value: string) => {
-    if (value.length >= 3) return true
-    return 'There must be at least three characters.'
-  },
-  requiredNicknameSymbols: (value: string) => {
-    if (!value.match(/[a-z]/i)) return 'At least one letter must be present'
-  },
-  requiredPasswordSymbols: (value: string) => {
-    if (!value.match(/[a-z]/i)) return 'At least one letter must be present'
-    else if (!value.match(/\d/)) return 'At least one number must be present'
-    else if (!value.match(/\[|\]|\^|\$|\.|\||\?|\*|\+|\(|\)|@|&|%|#|!|-/u))
-      return 'At least one special symbol as "[ ] \\ ^ $ . | ! ? * + - ( ) @ & % #" must be present'
-  },
-  passwordMinLength: (value: string) => {
-    if (value.length >= 8) return true
-    return 'Password must be at least 8 characters.'
-  }
-}
 
 function validNicknameCharacters() {
   const validChars = nickname.value.match(/[\p{L}|\d|\-|_]+/iu)

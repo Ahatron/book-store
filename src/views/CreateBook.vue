@@ -1,6 +1,6 @@
 <template>
   <Basic>
-    <v-form class="pa-4 mt-5 bg-white rounded-lg"
+    <v-form class="pa-4 pa-sm-8 mt-5 bg-white rounded-lg"
       @submit.prevent
       fast-fail
       validate-on="submit">

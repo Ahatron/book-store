@@ -1,9 +1,7 @@
 <template>
-  <v-card rounded="0"
-    color="indigo-lighten-5">
-    <template #loader>
-      <slot class="d-none"></slot>
-    </template>
+  <v-sheet class="pa-4 pa-sm-8 pt-2 pt-sm-2"
+    rounded="5">
+
     <v-tabs color="primary"
       class="mb-2"
       v-model="tab">
@@ -12,45 +10,24 @@
       <v-tab value="three">New</v-tab>
     </v-tabs>
 
-    <v-card-item class="pa-1 pa-sm-4">
-      <ViewToggle />
+    <ViewToggle />
 
-      <v-window v-model="tab">
-        <template v-for="item of values"
-          :key="item">
-          <v-window-item :value="item">
-            <v-row no-gutters
-              class="py-3">
-              <template v-if="appStore.viewToggle === 'grid'">
-                <v-col class="pa-0 "
-                  cols="6"
-                  sm="3"
-                  xs="2"
-                  v-for="n in 10"
-                  :key="n">
-                  <BookCard class="border-sm rounded-0" />
-                </v-col>
-              </template>
+    <v-window v-model="tab">
+      <template v-for="item of values"
+        :key="item">
+        <v-window-item :value="item">
+          <BookView />
+        </v-window-item>
+      </template>
+    </v-window>
 
-              <v-col v-else>
-                <BookList class="elevation-0" />
-              </v-col>
-            </v-row>
-          </v-window-item>
-        </template>
-      </v-window>
-    </v-card-item>
-
-  </v-card>
+  </v-sheet>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue';
-import BookCard from '@/components/BookCard.vue'
-import BookList from "@/components/BookList.vue"
 import ViewToggle from '@/components/UI/ViewToggle.vue';
-import Adaptive from '@/layouts/Adaptive.vue';
-import { useAppStore } from '@/store/app';
+import BookView from '@/components/BookView.vue';
+import { ref } from 'vue';
+
 const tab = ref<null | string>(null)
 const values = ref(['one', 'two', 'three'])
-const appStore = useAppStore()
 </script>

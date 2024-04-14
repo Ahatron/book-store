@@ -1,6 +1,6 @@
 <template>
   <Basic>
-    <v-form class="pa-4 mt-5 bg-white rounded-lg"
+    <v-form class="pa-4 pa-sm-8 mt-5 bg-white rounded-lg"
       @submit.prevent
       fast-fail
       validate-on="submit">
@@ -15,7 +15,7 @@
         <MyInput v-if="character.type !== 'select'"
           v-model="character.value"
           :required="character.required"
-          :rules="character.required && [rules.required]"
+          :rules="character.rules"
           :type="character.type"
           :label="character.label"
           :placeholder="character.placeholder"
@@ -48,15 +48,17 @@ import MyInput from '@/components/UI/MyInput.vue';
 import { ref } from 'vue';
 import { CharacterInput, CharacterSelect } from '@/types/CharacterInput';
 
+const rules = {
+  required: (value: string) => !!value || 'Field is required',
+}
+
 const characterInputs = ref<(CharacterInput | CharacterSelect)[]>([
-  { value: '', label: 'Name', type: 'text', required: true },
+  { value: '', label: 'Name', type: 'text', required: true, rules: [rules.required] },
   { value: '', label: "Surname", type: 'text' },
   { value: 'Male', label: "Gender", type: "select", selections: ['Male', 'Female'] },
   { value: '', label: "Birth date", type: 'date' },
   { value: '', label: "Death date", type: 'date' },
 ])
 
-const rules = {
-  required: (value: string) => !!value || 'Field is required',
-}
+
 </script>

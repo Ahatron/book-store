@@ -4,6 +4,7 @@ import { ref } from 'vue'
 
 export const useAppStore = defineStore('app', () => {
   const isUserAuth = ref(false)
+  const isUserAdmin = ref(false)
   const drawer = ref(false)
   const viewToggle = ref<'list' | 'grid'>('grid')
   const bookCategories = ref([
@@ -15,5 +16,5 @@ export const useAppStore = defineStore('app', () => {
     'Biographies',
     'Poetry',
   ]);
-  return { isUserAuth, drawer, viewToggle, bookCategories }
+  return { isUserAuth, drawer, viewToggle, bookCategories, isUserAdmin }
 })

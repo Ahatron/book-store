@@ -5,13 +5,14 @@
       <MyInput v-if="character.type !== 'select'"
         v-model="character.value"
         :type="character.type"
+        :rules="character.rules"
         :label="character.label"
         :placeholder="character.placeholder"
         density="compact" />
       <v-select v-else
         class="flex-column"
         v-model="character.value"
-        :type="character.type"
+        :rules="[...character.rules]"
         :label="character.label"
         :placeholder="character.placeholder"
         :items="character.selections"
@@ -23,6 +24,7 @@
 
 <script setup lang="ts">
 import MyInput from '@/components/UI/MyInput.vue';
+import { rules } from '@/utils/ValidationRules';
 import { useAppStore } from '@/store/app';
 import { CharacterInput, CharacterSelect } from '@/types/CharacterInput';
 import { ref } from 'vue';
@@ -30,19 +32,22 @@ import { ref } from 'vue';
 const appStore = useAppStore()
 
 const characterInputs = ref<(CharacterInput | CharacterSelect)[]>([
-  { label: "Name", value: '', type: "text" },
-  { label: "Author", value: '', type: "text" },
-  { label: "Publisher", value: '', type: "text" },
+  { label: "Name", value: '', type: "text", required: true, rules: [rules.required] },
+  { label: "Author", value: '', type: "text", rules: [rules.required] },
+  { label: "Publisher", value: '', type: "text", rules: [rules.required] },
   {
     label: "Age restriction", value: '', type: "select", placeholder: '18+',
     selections: ['0+', "6+", "12+", "16+", "18+"]
   },
   { label: "Year of publication", value: '', type: "date" },
-  { label: "Date of last circulation", value: '', type: "date" },
-  { label: "Genre", value: '', type: "select", selections: appStore.bookCategories },
+  { label: "Date of last circulation", value: '', type: "date", rules: [rules.required] },
+  { label: "Genre", value: '', type: "select", selections: appStore.bookCategories, rules: [rules.required] },
   { label: "Number of pages", value: '', type: "text" },
   { label: "Language", value: '', type: "text" },
-  { label: "Format", value: '', type: "select", placeholder: 'Book', selections: ['Book', 'E-Book'] },
+  {
+    label: "Format", value: '', type: "select", placeholder: 'Book',
+    selections: ['Book', 'E-Book'], rules: [rules.required]
+  },
   { label: "Weight", value: '', type: "text", },
   { label: "Width", value: '', type: "text", },
   { label: "Height", value: '', type: "text", },

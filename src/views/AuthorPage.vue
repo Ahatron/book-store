@@ -25,20 +25,7 @@
             <ViewToggle />
           </div>
 
-          <template v-if="appStore.viewToggle === 'grid'">
-            <v-row>
-              <v-col class="pa-0 "
-                cols="6"
-                sm="4"
-                xs="3"
-                v-for="n in 10"
-                :key="n">
-                <BookCard class="border-sm rounded-0" />
-              </v-col>
-            </v-row>
-          </template>
-          <BookList v-else
-            class="elevation-0" />
+          <BookView />
         </div>
       </div>
     </v-card>
@@ -48,10 +35,6 @@
 <script setup lang="ts">
 import Basic from '@/layouts/Basic.vue';
 import AuthorPageHeader from '@/components/AuthorPageHeader.vue';
-import BookList from '@/components/BookList.vue';
-import BookCard from '@/components/BookCard.vue';
-import { useAppStore } from '@/store/app';
+import BookView from '@/components/BookView.vue';
 import ViewToggle from '@/components/UI/ViewToggle.vue';
-
-const appStore = useAppStore()
 </script>
