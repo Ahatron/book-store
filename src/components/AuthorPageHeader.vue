@@ -6,23 +6,29 @@
         src="@/assets/AynRand.jpg"
         cover></v-img>
     </div>
-    <v-card-item class="w-100 align-center">
-      <v-card-title class="d-flex justify-center">Ayn Rand</v-card-title>
-      <v-card-subtitle class="d-flex justify-center">1905 - 1982</v-card-subtitle>
-      <v-card-subtitle class="d-flex justify-center">Subscribers 10000000000</v-card-subtitle>
-
-    </v-card-item>
+    <span class="w-100 d-flex flex-column align-center my-3">
+      <h3 class="mb-2">Ayn Rand</h3>
+      <v-card-subtitle class="mb-1">1905 - 1982</v-card-subtitle>
+      <v-card-subtitle class="">Subscribers 10K</v-card-subtitle>
+    </span>
     <div class="d-flex justify-center ">
-      <v-btn @click="subscribed = !subscribed"
-        color="blue-accent-2"
+      <v-btn v-if="!appStore.isUserAdmin"
+        @click="subscribed = !subscribed"
+        color="accent"
         :append-icon="subscribed ? 'mdi-bell-ring' : 'mdi-bell'">
         {{ subscribed ? "Subscribed" : 'Subscribe' }}</v-btn>
+      <v-btn v-else
+        color="grey">
+        Edit <v-icon>mdi-pencil</v-icon>
+      </v-btn>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { useAppStore } from '@/store/app';
 import { ref } from 'vue';
 
 const subscribed = ref(false)
+const appStore = useAppStore()
 </script>

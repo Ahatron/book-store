@@ -1,14 +1,17 @@
 <template>
   <MyAppBar />
   <NavDrawer />
-  <v-main class="bg-grey-lighten-3">
+  <slot name="drawer"></slot>
+  <v-main class="d-flex bg-grey-lighten-3">
     <Adaptive color="secondary"
       class="h-100">
-      <slot>
-      </slot>
+      <slot></slot>
+      <template #sidebar>
+        <slot name="sidebar"></slot>
+      </template>
     </Adaptive>
   </v-main>
-  <v-footer class="py-5 elevation-10"
+  <v-footer class="py-5"
     color="grey-lighten-2"
     height="150">
     Ahatron Inc. 2024

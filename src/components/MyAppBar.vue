@@ -11,12 +11,19 @@
         location="bottom">Categories</v-tooltip>
     </template>
 
-    <v-app-bar-title>Mimir</v-app-bar-title>
+    <v-app-bar-title @click="$router.push('/')"
+      class="cursor-pointer">
+      Mimir
+      <v-tooltip activator="parent"
+        location="bottom">Home page</v-tooltip>
+    </v-app-bar-title>
+
 
     <v-spacer v-show="!xs"></v-spacer>
 
-    <template v-if="!xs">
-      <MyInput class="mr-md-15 w-25 mb-3"
+    <template v-if="!xs && $route.path !== '/search'">
+      <MyInput @click="$router.push('/search')"
+        class="mr-md-15 w-25 mb-3"
         append-inner-icon="mdi-magnify"
         density="compact"
         label="Search books and authors"
@@ -27,39 +34,43 @@
       <v-spacer></v-spacer>
     </template>
     <v-btn v-else
-      icon
-      class="d-inline-flex">
+      to="/search"
+      class="d-inline-flex"
+      icon>
       <v-icon>mdi-magnify</v-icon>
     </v-btn>
 
     <template v-if="appStore.isUserAuth">
-      <v-btn v-if="!appStore.isUserAdmin"
-        icon>
-        <v-icon>mdi-heart</v-icon>
-        <v-tooltip activator="parent"
-          location="bottom">Liked books</v-tooltip>
-      </v-btn>
+      <template v-if="!appStore.isUserAdmin">
+        <v-btn icon>
+          <v-icon>mdi-heart</v-icon>
+          <v-tooltip activator="parent"
+            location="bottom">Liked books</v-tooltip>
+        </v-btn>
 
-      <v-btn v-if="!appStore.isUserAdmin"
-        icon>
-        <v-icon>mdi-cart</v-icon>
-        <v-tooltip activator="parent"
-          location="bottom">Books for shopping</v-tooltip>
-      </v-btn>
+        <v-btn icon>
+          <v-icon>mdi-cart</v-icon>
+          <v-tooltip activator="parent"
+            location="bottom">Books for shopping</v-tooltip>
+        </v-btn>
+      </template>
 
-      <v-btn v-if="appStore.isUserAdmin"
-        icon>
-        <v-icon>mdi-book-plus</v-icon>
-        <v-tooltip activator="parent"
-          location="bottom">Create new book</v-tooltip>
-      </v-btn>
+      <template v-else>
+        <v-btn icon
+          to="/books/create">
+          <v-icon>mdi-book-plus</v-icon>
+          <v-tooltip activator="parent"
+            location="bottom">Create new book</v-tooltip>
+        </v-btn>
 
-      <v-btn v-if="appStore.isUserAdmin"
-        icon>
-        <v-icon>mdi-account-plus</v-icon>
-        <v-tooltip activator="parent"
-          location="bottom">Create new author</v-tooltip>
-      </v-btn>
+        <v-btn icon
+          to="/authors/create">
+          <v-icon>mdi-account-plus</v-icon>
+          <v-tooltip activator="parent"
+            location="bottom">Create new author</v-tooltip>
+        </v-btn>
+      </template>
+
 
       <v-btn class="ml-2"
         icon>
@@ -70,10 +81,14 @@
     </template>
 
     <v-btn v-else
+      to="/login"
       class="ml-2"
       variant="flat"
       color="accent"
-      append-icon="mdi-login">Login</v-btn>
+      append-icon="mdi-login">Login
+      <v-tooltip activator="parent"
+        location="bottom">Login or registration</v-tooltip>
+    </v-btn>
 
   </v-app-bar>
 </template>

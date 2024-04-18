@@ -2,6 +2,7 @@
   <div class="d-flex justify-end mb-1 mr-1">
     <v-btn-toggle v-model="appStore.viewToggle"
       variant="flat"
+      density="comfortable"
       divided
       color="primary">
       <v-btn @click="appStore.viewToggle = 'grid'"

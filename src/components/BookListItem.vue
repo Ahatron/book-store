@@ -1,10 +1,9 @@
-<script setup
-  lang="ts">
-  import { ref } from 'vue';
+<script setup lang="ts">
+import { ref } from 'vue';
 
 
-  const likeActive = ref(false)
-  const cartActive = ref(false)
+const likeActive = ref(false)
+const cartActive = ref(false)
 </script>
 
 <template>
@@ -16,8 +15,8 @@
           variant="text"
           class="mr-4">
           <v-img rounded="10"
-            height="180"
-            width="100"
+            aspect-ratio="0.6"
+            width="80"
             cover
             src="../assets/atlas-shrugged.jpg" />
         </v-card>

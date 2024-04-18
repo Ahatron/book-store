@@ -3,8 +3,8 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useAppStore = defineStore('app', () => {
-  const isUserAuth = ref(false)
-  const isUserAdmin = ref(false)
+  const isUserAuth = ref(true)
+  const isUserAdmin = ref(true)
   const drawer = ref(false)
   const viewToggle = ref<'list' | 'grid'>('grid')
   const bookCategories = ref([

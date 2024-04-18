@@ -31,11 +31,11 @@ export const useBookInfoStore = defineStore('book-info', () => {
       userPromotion: 'down'
     },])
   const images = ref([
-    'src/assets/atlas-shrugged.jpg',
-    'src/assets/atlas-shrugged.jpg',
-    'src/assets/atlas-shrugged.jpg',
-    'src/assets/atlas-shrugged.jpg',
-    'src/assets/atlas-shrugged.jpg',
+    '/src/assets/atlas-shrugged.jpg',
+    '/src/assets/atlas-shrugged.jpg',
+    '/src/assets/atlas-shrugged.jpg',
+    '/src/assets/atlas-shrugged.jpg',
+    '/src/assets/atlas-shrugged.jpg',
   ])
   const selectedImage = ref(0)
   const likeActive = ref(false)

@@ -1,12 +1,12 @@
 <template>
   <div class="my-2"
     @click="bookInfoStore.dialogActive = true">
-    <v-row no-gutters>
+    <v-row dense>
       <v-col v-for="(source, i) in ImagesForShow"
         :key="source"
         :cols="i === 0 ? 12 : 4"
-        class="pa-1">
-        <div class="position-relative"
+        class="">
+        <div class="position-relative cursor-pointer"
           @click="bookInfoStore.selectedImage = i">
           <v-img cover
             rounded="10"

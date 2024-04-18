@@ -1,39 +1,34 @@
 <template>
-  <Basic>
-    <v-card class="pa-4 py-5 mt-5">
-      <div class="w-100 align-start">
-        <AuthorPageHeader class="mb-5" />
+  <div class="w-100 align-start">
+    <AuthorPageHeader class="mb-5" />
 
-        <v-divider class="mb-2" />
+    <v-divider class="mb-2" />
 
-        <div class="mb-5 px-2 px-sm-6">
-          <v-card-title>Description</v-card-title>
-          <p class="mb-5">
-            Айн Рэнд (англ. Ayn Rand [aɪn ɹænd]; урождённая Али́са Зино́вьевна Розенба́ум; 2 февраля 1905[1][2][…],
-            Санкт-Петербург, Санкт-Петербургская губерния, Российская империя[3] — 6 марта 1982[1][2][…], Манхэттен,
-            Нью-Йорк) — американская писательница и философ. Известна двумя своими романами-бестселлерами — «Источник»
-            и
-            «Атлант расправил плечи»; работала также как драматург и сценарист. Рэнд — создательница философской
-            системы,
-            названной ею объективизмом.
-          </p>
+    <div class="mb-5 px-2 px-sm-6">
+      <v-card-title>Description</v-card-title>
+      <p class="mb-5">
+        Айн Рэнд (англ. Ayn Rand [aɪn ɹænd]; урождённая Али́са Зино́вьевна Розенба́ум; 2 февраля 1905[1][2][…],
+        Санкт-Петербург, Санкт-Петербургская губерния, Российская империя[3] — 6 марта 1982[1][2][…], Манхэттен,
+        Нью-Йорк) — американская писательница и философ. Известна двумя своими романами-бестселлерами — «Источник»
+        и
+        «Атлант расправил плечи»; работала также как драматург и сценарист. Рэнд — создательница философской
+        системы,
+        названной ею объективизмом.
+      </p>
 
-          <v-divider class="mb-4" />
-          <div class="d-flex align-center mb-10">
-            <v-card-title>Works list</v-card-title>
-            <v-spacer />
-            <ViewToggle />
-          </div>
-
-          <BookView />
-        </div>
+      <v-divider class="mb-4" />
+      <div class="d-flex align-center mb-10">
+        <v-card-title>Works list</v-card-title>
+        <v-spacer />
+        <ViewToggle />
       </div>
-    </v-card>
-  </Basic>
+
+      <BookView />
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import Basic from '@/layouts/Basic.vue';
 import AuthorPageHeader from '@/components/AuthorPageHeader.vue';
 import BookView from '@/components/BookView.vue';
 import ViewToggle from '@/components/UI/ViewToggle.vue';

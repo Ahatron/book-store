@@ -1,12 +1,8 @@
 <template>
-  <Basic>
-    <BookSectionTabs background-color="black" />
-  </Basic>
+  <BookSectionTabs background-color="black" />
 </template>
 
-<script lang="ts"
-  setup>
-  import Basic from '@/layouts/Basic.vue'
-  import BookSectionTabs from '@/components/BookSectionTabs.vue'
+<script lang="ts" setup>
+import BookSectionTabs from '@/components/BookSectionTabs.vue'
 
 </script>
