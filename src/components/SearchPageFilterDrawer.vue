@@ -14,7 +14,7 @@
 
       </v-btn>
     </div>
-    <SearchPageFilter class="pa-4 pa-sm-8 pt-sm-4" />
+    <SearchPageFilter class="px-4" />
   </v-navigation-drawer>
 </template>
 

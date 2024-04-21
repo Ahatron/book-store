@@ -1,7 +1,7 @@
-
-export interface CharacterInput {
+export interface Input {
   label: string,
   value: string,
+  inputType: 'input'
   type: 'text' | 'date' | 'number',
   required?: boolean,
   rules?: Function[],
@@ -11,23 +11,31 @@ export interface CharacterInput {
   placeholder?: string,
 }
 
-export interface CharacterSelect {
+export interface InputSelect {
+  inputType: 'select'
   label: string,
   value: string,
-  type: 'select',
   required?: boolean,
-  disabled?: boolean,
   rules?: Function[],
-  restriction?: Function
   selections: string[],
-  placeholder?: string,
 }
 
-export interface CharacterRange {
+export interface MultipleSelect {
+  inputType: 'select multiple',
+  label: string,
+  values: string[],
+  rules?: Function[],
+  selections: string[],
+  someSelected?: () => boolean,
+  allSelected?: () => boolean,
+  toggle?: Function
+}
+
+export interface InputRange {
   label: string,
   min: number,
   max: number,
   step: number,
   value: (number | string)[],
-  type: 'range',
+  inputType: 'range',
 }

@@ -11,7 +11,7 @@
     <h3 class="mb-3 ml-2">Characteristics</h3>
     <template v-for="character of characterInputs"
       :key="character.label">
-      <MyInput v-if="character.type !== 'select'"
+      <MyInput v-if="character.inputType === 'input'"
         v-model="character.value"
         :required="character.required"
         :rules="character.rules"
@@ -19,12 +19,10 @@
         :label="character.label"
         :placeholder="character.placeholder"
         density="compact" />
-      <v-select v-else
+      <v-select v-else-if="character.inputType === 'select'"
         class="flex-column"
         v-model="character.value"
-        :type="character.type"
         :label="character.label"
-        :placeholder="character.placeholder"
         :items="character.selections"
         variant="outlined"
         density="comfortable" />
@@ -39,23 +37,25 @@
 </template>
 
 <script setup lang="ts">
-import Basic from '@/layouts/Basic.vue';
 import CreateAuthorImage from '@/components/CreateAuthorImage.vue';
 import MyInput from '@/components/UI/MyInput.vue';
 
 import { ref } from 'vue';
-import { CharacterInput, CharacterSelect } from '@/types/CharacterInput';
+import { Input, InputSelect } from '@/types/CharacterInput';
 
 const rules = {
   required: (value: string) => !!value || 'Field is required',
 }
 
-const characterInputs = ref<(CharacterInput | CharacterSelect)[]>([
-  { value: '', label: 'Name', type: 'text', required: true, rules: [rules.required] },
-  { value: '', label: "Surname", type: 'text' },
-  { value: 'Male', label: "Gender", type: "select", selections: ['Male', 'Female'] },
-  { value: '', label: "Birth date", type: 'date' },
-  { value: '', label: "Death date", type: 'date' },
+const characterInputs = ref<(Input | InputSelect)[]>([
+  {
+    value: '', label: 'Name', inputType: 'input', type: 'text',
+    required: true, rules: [rules.required]
+  },
+  { value: '', label: "Surname", inputType: 'input', type: 'text' },
+  { value: 'Male', label: "Gender", inputType: 'select', selections: ['Male', 'Female'] },
+  { value: '', label: "Birth date", inputType: 'input', type: 'date' },
+  { value: '', label: "Death date", inputType: 'input', type: 'date' },
 ])
 
 
