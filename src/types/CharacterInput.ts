@@ -1,5 +1,9 @@
+type InputLabels = 'Name' | 'Surname' | 'Birth date' |
+  'Death date' | 'Author' | 'Publisher' | 'Publication Year' |
+  'Last Circulation' | 'Price' | 'Weight' | 'Width' | 'Height' | 'Series' | 'ISBN'
+
 export interface Input {
-  label: string,
+  label: InputLabels,
   value: string,
   inputType: 'input'
   type: 'text' | 'date' | 'number',
@@ -11,9 +15,12 @@ export interface Input {
   placeholder?: string,
 }
 
-export interface InputSelect {
+type SelectLabels = 'Age Restriction' | 'Format' |
+  'Binding' | 'Genre' | 'Gender' | 'Languages'
+
+export interface Select {
   inputType: 'select'
-  label: string,
+  label: SelectLabels,
   value: string,
   required?: boolean,
   rules?: Function[],
@@ -22,16 +29,15 @@ export interface InputSelect {
 
 export interface MultipleSelect {
   inputType: 'select multiple',
-  label: string,
+  label: SelectLabels,
   values: string[],
   rules?: Function[],
   selections: string[],
-  someSelected?: () => boolean,
-  allSelected?: () => boolean,
-  toggle?: Function
+  someSelected?: boolean,
+  allSelected?: boolean,
 }
 
-export interface InputRange {
+export interface Range {
   label: string,
   min: number,
   max: number,

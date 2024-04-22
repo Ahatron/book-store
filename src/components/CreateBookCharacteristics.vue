@@ -33,28 +33,28 @@
 import MyInput from '@/components/UI/MyInput.vue';
 import { rules } from '@/utils/ValidationRules';
 import { useAppStore } from '@/store/app';
-import { Input, InputSelect, MultipleSelect } from '@/types/CharacterInput';
+import { Input, Select, MultipleSelect } from '@/types/CharacterInput';
 import { ref } from 'vue';
 
 const appStore = useAppStore()
 
-const characterInputs = ref<(Input | InputSelect | MultipleSelect)[]>([
+const characterInputs = ref<(Input | Select | MultipleSelect)[]>([
   { label: "Name", value: '', inputType: 'input', type: "text", required: true, rules: [rules.required] },
   { label: "Author", value: '', inputType: 'input', type: "text", rules: [rules.required] },
   { label: "Publisher", value: '', inputType: 'input', type: "text", rules: [rules.required] },
   { label: "Price", value: '0', inputType: 'input', type: "number", rules: [rules.required], min: 0 },
   {
-    label: "Age restriction", value: '12+', inputType: 'select',
+    label: "Age Restriction", value: '12+', inputType: 'select',
     selections: ['0+', "6+", "12+", "16+", "18+"]
   },
-  { label: "Publication year", value: '', inputType: 'input', type: "date" },
-  { label: "Last circulation", value: '', inputType: 'input', type: "date", rules: [rules.required] },
+  { label: "Publication Year", value: '', inputType: 'input', type: "date" },
+  { label: "Last Circulation", value: '', inputType: 'input', type: "date", rules: [rules.required] },
   {
     label: "Genre", value: 'Other', inputType: 'select',
     selections: appStore.bookCategories, rules: [rules.required]
   },
   {
-    label: "Formats", values: ['Book'], inputType: 'select multiple',
+    label: "Format", values: ['Book'], inputType: 'select multiple',
     selections: ['Book', 'E-Book'], rules: [rules.required]
   },
   { label: "Weight", value: '', inputType: 'input', type: "text", },
