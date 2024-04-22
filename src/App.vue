@@ -5,16 +5,7 @@
         <router-view name="drawer" />
       </template>
 
-      <router-view v-slot="{ Component, route }">
-        <transition name="fade">
-          <component :is="Component"
-            :key="route.path" />
-        </transition>
-      </router-view>
-
-      <template #sidebar>
-        <router-view name="sidebar" />
-      </template>
+      <router-view />
     </Basic>
   </v-app>
 </template>
@@ -29,7 +20,7 @@
 // import CreateAuthor from '@/views/CreateAuthor.vue';
 // import SearchPage from '@/views/SearchPage.vue';
 // import CartPage from '@/views/CartPage.vue'
-import Basic from './layouts/Basic.vue';
+import Basic from '@/layouts/Basic.vue';
 </script>
 
 <style>
