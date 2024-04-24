@@ -16,7 +16,9 @@
         :rules="[required]" />
       <MyInput v-model="password"
         required
-        type="input"
+        @click:append-inner="show = !show"
+        :append-inner-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+        :type="show ? 'text' : 'password'"
         variant="outlined"
         name="password"
         label="Your password"
@@ -39,5 +41,6 @@ import { ref } from 'vue';
 
 const nickname = ref<string>('')
 const password = ref<string>('')
+const show = ref(false)
 const required = (value: string) => !!value || 'Field is required'
 </script>

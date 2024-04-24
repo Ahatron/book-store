@@ -4,13 +4,26 @@
     <v-divider />
 
     <div class="mb-3 ml-4 d-flex align-center">
-      <v-select class="w-25"
+      <v-select class="w-25 mr-2"
+        hide-details
         variant="outlined"
         :items="sortBy"
         density="comfortable"
         label="Sort by"
         v-model="selectedSort"></v-select>
-      <v-spacer></v-spacer>
+      <v-btn @click="orderInAscending = !orderInAscending"
+        class="mt-1 justify-self-center"
+        variant="flat"
+        density="comfortable"
+        rounded="sm"
+        icon>
+        <v-tooltip activator="parent"
+          location="bottom">In {{ orderInAscending ? 'ascending' : 'descending' }}
+          order</v-tooltip>
+        <v-icon v-if="orderInAscending">mdi-order-bool-ascending</v-icon>
+        <v-icon v-else>mdi-order-bool-descending</v-icon>
+      </v-btn>
+      <v-spacer />
       <v-btn class="mr-4"
         elevation="0"
         variant="tonal"
@@ -71,5 +84,6 @@ import { ref } from 'vue'
 const bookInfoStore = useBookInfoStore()
 const sortBy = ref(['Newest', 'Oldest', 'Popular'])
 const selectedSort = ref('Newest')
+const orderInAscending = ref(false)
 
 </script>

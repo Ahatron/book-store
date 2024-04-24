@@ -17,10 +17,9 @@
       </p>
 
       <v-divider class="mb-4" />
-      <div class="d-flex align-center mb-10">
+      <div class="d-flex">
         <v-card-title>Works list</v-card-title>
         <v-spacer />
-        <ViewToggle />
       </div>
 
       <BookView />

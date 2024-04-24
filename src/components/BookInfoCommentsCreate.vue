@@ -8,7 +8,7 @@
           <v-icon>mdi-account</v-icon>
         </v-avatar>
       </div>
-      <div class="w-100">
+      <div class="w-100 mb-2">
         <v-textarea v-model="comment"
           class="d-flex flex-column"
           label="Your comment"
@@ -17,8 +17,7 @@
           variant="outlined"
           rows="3" />
 
-        <div class="d-flex align-center mb-5 ml-4">
-          <span class="mr-3">Your rating:</span>
+        <div>
           <v-rating v-model="rating"
             size="xx-small"
             hover
@@ -41,5 +40,5 @@ import { ref } from 'vue';
 
 const bookInfoStore = useBookInfoStore()
 const comment = ref('')
-const rating = ref < BookRating > (5)
+const rating = ref<BookRating>(5)
 </script>

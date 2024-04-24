@@ -18,8 +18,10 @@
         :append-icon="subscribed ? 'mdi-bell-ring' : 'mdi-bell'">
         {{ subscribed ? "Subscribed" : 'Subscribe' }}</v-btn>
       <v-btn v-else
+        to="/authors/1/edit"
+        variant="tonal"
         color="grey">
-        Edit <v-icon>mdi-pencil</v-icon>
+        Edit <v-icon class="ml-2">mdi-pencil</v-icon>
       </v-btn>
     </div>
   </div>

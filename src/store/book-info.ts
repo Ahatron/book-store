@@ -41,6 +41,9 @@ export const useBookInfoStore = defineStore('book-info', () => {
   const likeActive = ref(false)
   const cartActive = ref(false)
   const dialogActive = ref(false)
+  const formatToggle = ref<'book' | 'e-book'>('book')
+  const inStock = ref(false)
+  const rating = 5
 
   function addComment(userComment: string, userRating: BookRating) {
     comments.value.push({
@@ -60,6 +63,9 @@ export const useBookInfoStore = defineStore('book-info', () => {
     likeActive,
     cartActive,
     dialogActive,
+    formatToggle,
+    inStock,
+    rating,
     addComment
   }
 })

@@ -1,11 +1,8 @@
 <template>
   <MyAppBar />
   <NavDrawer />
-  <slot name="drawer"></slot>
 
-  <v-main class="d-flex bg-grey-lighten-3">
-    <router-view />
-  </v-main>
+  <router-view />
 
   <v-footer class="py-5"
     color="grey-lighten-2"

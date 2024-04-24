@@ -14,7 +14,8 @@
     <v-app-bar-title @click="$router.push('/')"
       class="cursor-pointer">
       Mimir
-      <v-tooltip activator="parent"
+      <v-tooltip class="d-flex"
+        activator="parent"
         location="bottom">Home page</v-tooltip>
     </v-app-bar-title>
 
@@ -72,8 +73,7 @@
       </template>
 
 
-      <v-btn class="ml-2"
-        icon>
+      <v-btn icon>
         <v-icon>mdi-account</v-icon>
         <v-tooltip activator="parent"
           location="bottom">Your profile</v-tooltip>

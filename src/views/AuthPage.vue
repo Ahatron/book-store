@@ -10,7 +10,6 @@
       <MyInput @input="validNicknameCharacters"
         v-model="nickname"
         required
-        type="input"
         variant="outlined"
         name="nikname"
         label="Your nickname"
@@ -18,8 +17,10 @@
         error-message="loh" />
       <MyInput @input="validPasswordCharacters"
         v-model="password"
+        @click:append-inner="show = !show"
+        :append-inner-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+        :type="show ? 'text' : 'password'"
         required
-        type="input"
         variant="outlined"
         name="password"
         label="Your password"
@@ -44,6 +45,7 @@ import { ref } from 'vue';
 
 const nickname = ref<string>('')
 const password = ref<string>('')
+const show = ref(false)
 
 function validNicknameCharacters() {
   const validChars = nickname.value.match(/[\p{L}|\d|\-|_]+/iu)
@@ -51,7 +53,7 @@ function validNicknameCharacters() {
 }
 
 function validPasswordCharacters() {
-  const validChars = password.value.match(/[a-z]|\d|\[|\]|\^|\$|\.|\||\?|\*|\+|\(|\)|@|&|%|#|!|-|_+/iu)
+  const validChars = password.value.match(/([a-z]|\d|\[|\]|\^|\$|\.|\||\?|\*|\+|\(|\)|@|&|%|#|!|-|_)+/iu)
   if (validChars) password.value = validChars[0]
 }
 </script>

@@ -3,7 +3,6 @@
     <v-btn-toggle v-model="appStore.viewToggle"
       variant="flat"
       density="comfortable"
-      divided
       color="primary">
       <v-btn @click="appStore.viewToggle = 'grid'"
         value="grid"

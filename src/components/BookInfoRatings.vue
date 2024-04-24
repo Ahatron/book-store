@@ -39,9 +39,8 @@
   </v-card>
 </template>
 
-<script setup
-  lang="ts">
-  import { ref } from 'vue';
+<script setup lang="ts">
+import { ref } from 'vue';
 
-  const rating = ref()
+const rating = ref()
 </script>

@@ -7,9 +7,10 @@
       <v-row class="w-100"
         justify="space-evenly"
         dense>
-        <v-col sm="11"
-          md="10"
-          lg="8">
+        <AdaptiveSidebar v-if="!xs">
+          <router-view name="sidebar" />
+        </AdaptiveSidebar>
+        <v-col>
           <v-sheet class="pa-2 pa-sm-4 pa-md-8 pt-2 pt-sm-4 pt-md-4 rounded">
             <router-view />
           </v-sheet>
@@ -20,5 +21,7 @@
 </template>
 
 <script setup lang="ts">
-// 
+import { useDisplay } from 'vuetify/lib/framework.mjs';
+import AdaptiveSidebar from '@/components/AdaptiveSidebar.vue';
+const { xs } = useDisplay()
 </script>
