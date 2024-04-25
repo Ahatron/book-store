@@ -3,9 +3,10 @@
     <v-tabs color="primary"
       class="mb-2"
       v-model="tab">
-      <v-tab value="one">Popular</v-tab>
-      <v-tab value="two">Recommended</v-tab>
-      <v-tab value="three">New</v-tab>
+      <v-tab value="Popular">Popular</v-tab>
+      <v-tab value="Recommended">Recommended</v-tab>
+      <v-tab value="New">New</v-tab>
+      <v-tab value="Stocks">Stocks</v-tab>
     </v-tabs>
 
     <v-window v-model="tab">
@@ -23,5 +24,5 @@ import BookView from '@/components/BookView.vue';
 import { ref } from 'vue';
 
 const tab = ref<null | string>(null)
-const values = ref(['one', 'two', 'three'])
+const values = ref(['Popular', 'Recommended', 'New', 'Stocks'])
 </script>

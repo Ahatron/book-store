@@ -5,7 +5,7 @@
     lg="3"
     class="position-relative">
     <v-sheet class="pa-4 pa-sm-4 pa-md-8 pt-2 pt-sm-4 pt-md-4 rounded position-sticky"
-      style="top: 80px; height: 510px; overflow-y: auto;"
+      style="top: 80px; height: 580px; overflow-y: auto;"
       tag="aside">
       <slot></slot>
     </v-sheet>

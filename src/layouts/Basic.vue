@@ -9,6 +9,8 @@
     height="150">
     Ahatron Inc. 2024
   </v-footer>
+
+  <router-view name="dialog" />
 </template>
 <script setup lang="ts">
 import MyAppBar from '@/components/MyAppBar.vue'

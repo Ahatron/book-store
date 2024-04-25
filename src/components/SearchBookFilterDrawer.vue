@@ -4,17 +4,15 @@
     :width="smAndUp ? 500 : 300"
     temporary
     location="right">
-
     <div class="d-flex mb-2">
       <v-btn @click="searchStore.drawer = false"
         flat
         icon>
         <v-icon>mdi-arrow-left</v-icon>
         <v-spacer></v-spacer>
-
       </v-btn>
     </div>
-    <SearchPageFilter class="px-4" />
+    <SearchBookFilter class="px-4" />
   </v-navigation-drawer>
 </template>
 
@@ -22,7 +20,7 @@
 
 import { useSearchStore } from '@/store/search';
 import { useDisplay } from 'vuetify/lib/framework.mjs';
-import SearchPageFilter from '@/components/SearchPageFilter.vue';
+import SearchBookFilter from '@/components/SearchBookFilter.vue';
 
 const searchStore = useSearchStore()
 const { smAndUp } = useDisplay()

@@ -27,35 +27,46 @@
     </v-card-item>
     <v-card-actions class="d-flex px-0"
       @click.stop>
-      <v-btn @click.stop="cartActive = !cartActive"
-        class="px-0"
-        style="width: 45%"
-        color="accent"
-        variant="tonal">
-        <v-icon v-if="!cartActive">mdi-cart-plus</v-icon>
-        <v-icon v-else>mdi-cart-minus</v-icon>
-      </v-btn>
-      <v-spacer />
-      <v-btn @click.stop="likeActive = !likeActive"
-        class="px-0"
-        style="width: 45%"
-        color="accent"
-        variant="tonal">
-        <v-icon v-if="!likeActive"
-          color="red">mdi-heart-outline</v-icon>
-        <v-icon v-else
-          color="red">mdi-heart</v-icon>
+      <template v-if="!appStore.isUserAdmin">
+        <v-btn @click.stop="cartActive = !cartActive"
+          class="px-0"
+          style="width: 45%"
+          color="accent"
+          variant="tonal">
+          <v-icon v-if="!cartActive">mdi-cart-plus</v-icon>
+          <v-icon v-else>mdi-cart-minus</v-icon>
+        </v-btn>
+        <v-spacer />
+        <v-btn @click.stop="likeActive = !likeActive"
+          class="px-0"
+          style="width: 45%"
+          color="accent"
+          variant="tonal">
+          <v-icon v-if="!likeActive"
+            color="red">mdi-heart-outline</v-icon>
+          <v-icon v-else
+            color="red">mdi-heart</v-icon>
+        </v-btn>
+      </template>
+
+      <v-btn v-else
+        to="/authors/1/edit"
+        variant="tonal"
+        color="grey">
+        Edit <v-icon class="ml-2">mdi-pencil</v-icon>
       </v-btn>
     </v-card-actions>
   </v-card>
 </template>
 
 <script setup lang="ts">
+import { useAppStore } from '@/store/app';
 import { ref } from 'vue';
-
 
 const likeActive = ref(false)
 const cartActive = ref(false)
+
+const appStore = useAppStore()
 </script>
 
 <style scoped>

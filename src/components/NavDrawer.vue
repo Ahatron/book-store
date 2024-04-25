@@ -12,7 +12,7 @@
           md="10"
           lg="8">
           <v-list-item class="my-2">
-            <h3>Categories</h3>
+            <h3>Catalog</h3>
           </v-list-item>
           <v-divider></v-divider>
           <v-list-item v-for="category of appStore.bookCategories"

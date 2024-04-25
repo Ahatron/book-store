@@ -1,12 +1,15 @@
 <template>
   <div>
     <div class="d-flex align-center">
-      <MyInput class="w-75 mr-2"
+      <MyInput class="w-75 mr-2 mb-2"
+        v-model="searchStore.search"
         append-inner-icon="mdi-magnify"
         density="compact"
-        label="Search books and authors"
+        label="Search books"
         variant="outlined"
+        hide-details
         single-line
+        autofocus
         @click:append-inner="''" />
       <v-btn @click="searchStore.drawer = true"
         v-show="xs"
@@ -26,6 +29,7 @@ import MyInput from '@/components/UI/MyInput.vue';
 import BookView from '@/components/BookView.vue';
 import { useSearchStore } from '@/store/search';
 import { useDisplay } from 'vuetify/lib/framework.mjs';
+import { ref } from 'vue';
 
 const { xs } = useDisplay()
 const searchStore = useSearchStore()

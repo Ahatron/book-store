@@ -54,7 +54,8 @@
     <div class="d-flex position-sticky "
       style="bottom: 0;">
       <v-spacer />
-      <v-btn class="mb-4"
+      <v-btn @click="scrollStart"
+        class="mb-4"
         @submit="'ok'"
         elevation="10"
         type="submit"
@@ -68,6 +69,10 @@ import { useAppStore } from '@/store/app';
 import MyInput from '@/components/UI/MyInput.vue';
 import { ref } from 'vue';
 import { Input, Select, Range, MultipleSelect } from '@/types/CharacterInput'
+
+function scrollStart() {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
 
 const { bookCategories } = useAppStore()
 const ageRestrictions = ['0+', "6+", "12+", "16+", "18+"]

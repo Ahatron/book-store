@@ -39,14 +39,14 @@
       <v-btn-toggle v-model="bookInfoStore.formatToggle"
         class="mb-4"
         density="comfortable"
-        variant="flat"
-        color="primary">
+        variant="tonal"
+        color="accent">
         <v-btn value="book"><v-icon class="mr-1">mdi-book</v-icon> Book</v-btn>
         <v-btn value="e-book"><v-icon class="mr-1">mdi-cellphone-text</v-icon>E-Book</v-btn>
       </v-btn-toggle>
-      <template v-if="!appStore.isUserAdmin">
+      <div v-if="!appStore.isUserAdmin">
         <v-btn @click="bookInfoStore.cartActive = !bookInfoStore.cartActive"
-          color="secondary"
+          color="accent"
           variant="tonal">
           <template v-if="!bookInfoStore.cartActive">
             <span class="mr-1"> Add to Cart</span>
@@ -59,7 +59,7 @@
         </v-btn>
 
         <v-btn @click="bookInfoStore.likeActive = !bookInfoStore.likeActive"
-          color="secondary"
+          color="accent"
           variant="tonal">
           <template v-if="!bookInfoStore.likeActive">
             <span class="mr-1">Like it</span>
@@ -70,7 +70,7 @@
             <v-icon color="red">mdi-heart</v-icon>
           </template>
         </v-btn>
-      </template>
+      </div>
 
       <v-btn v-else
         to="/books/1/edit"

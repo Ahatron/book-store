@@ -1,14 +1,5 @@
-<script setup lang="ts">
-import { ref } from 'vue';
-
-
-const likeActive = ref(false)
-const cartActive = ref(false)
-</script>
-
 <template>
-  <v-list-item class="px-0 px-sm-4 my-1"
-    color="primary">
+  <v-list-item class="px-0 px-sm-4 my-1">
     <template #default>
       <div class="d-flex">
         <v-card elevation="0"
@@ -39,23 +30,42 @@ const cartActive = ref(false)
 
     <template #append>
       <div class="d-flex flex-column flex-sm-row">
-        <v-btn class="ma-1"
-          @click="cartActive = !cartActive"
-          color="secondary"
-          variant="tonal">
-          <v-icon v-if="!cartActive">mdi-cart-plus</v-icon>
-          <v-icon v-else>mdi-cart-minus</v-icon>
-        </v-btn>
-        <v-btn class="ma-1"
-          @click="likeActive = !likeActive"
-          color="secondary"
-          variant="tonal">
-          <v-icon v-if="!likeActive"
-            color="red">mdi-heart-outline</v-icon>
-          <v-icon v-else
-            color="red">mdi-heart</v-icon>
+        <template v-if="!appStore.isUserAdmin">
+          <v-btn class="ma-1"
+            @click.stop.prevent="cartActive = !cartActive"
+            color="secondary"
+            variant="tonal">
+            <v-icon v-if="!cartActive">mdi-cart-plus</v-icon>
+            <v-icon v-else>mdi-cart-minus</v-icon>
+          </v-btn>
+          <v-btn class="ma-1"
+            @click.stop.prevent="likeActive = !likeActive"
+            color="secondary"
+            variant="tonal">
+            <v-icon v-if="!likeActive"
+              color="red">mdi-heart-outline</v-icon>
+            <v-icon v-else
+              color="red">mdi-heart</v-icon>
+          </v-btn>
+        </template>
+
+        <v-btn v-else
+          to="/authors/1/edit"
+          variant="tonal"
+          color="grey">
+          Edit <v-icon class="ml-2">mdi-pencil</v-icon>
         </v-btn>
       </div>
     </template>
   </v-list-item>
 </template>
+
+<script setup lang="ts">
+import { useAppStore } from '@/store/app';
+import { ref } from 'vue';
+
+
+const likeActive = ref(false)
+const cartActive = ref(false)
+const appStore = useAppStore()
+</script>

@@ -30,5 +30,4 @@
 <script setup lang="ts">
 import AuthorPageHeader from '@/components/AuthorPageHeader.vue';
 import BookView from '@/components/BookView.vue';
-import ViewToggle from '@/components/UI/ViewToggle.vue';
 </script>
