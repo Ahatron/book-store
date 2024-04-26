@@ -9,7 +9,8 @@
         density="compact" />
 
       <div v-else-if="input.inputType === 'range'"
-        class="mb-2">
+        class="mb-2 pa-2 border rounded"
+        style="border-color: lightgray !important;">
         <span class="ml-3"
           style="color: grey;">{{ input.label }}</span>
         <v-range-slider v-model="input.value"
@@ -29,7 +30,7 @@
         density="compact" />
 
       <v-select v-else-if="input.inputType === 'select multiple'"
-        v-model="input.values"
+        v-model="input.value"
         :label="input.label"
         @update:model-value="update(input)"
         class="flex-column"
@@ -51,13 +52,21 @@
       </v-select>
     </template>
 
-    <div class="d-flex position-sticky "
-      style="bottom: 0;">
-      <v-spacer />
-      <v-btn @click="scrollStart"
+    <div class="d-flex justify-space-between position-sticky bg-white py-3"
+      style="bottom: -1rem;">
+      <v-btn @click="throwOff"
+        style="width: 48%;"
+        variant="flat"
         class="mb-4"
         @submit="'ok'"
-        elevation="10"
+        type="submit"
+        color="grey">Throw
+        off</v-btn>
+      <v-btn @click="scrollStart"
+        style="width: 48%;"
+        variant="flat"
+        class="mb-4"
+        @submit="'ok'"
         type="submit"
         color="accent">Apply</v-btn>
     </div>
@@ -82,44 +91,56 @@ const bindings = ['Hardcover', 'Softcover', 'Adhesive seamless connection',
 const formats = ['Book', 'E-Book']
 
 function toggle(input: MultipleSelect) {
-  input.values = input.allSelected ? [] : input.selections;
+  input.value = input.allSelected ? [] : input.selections;
   update(input);
 }
 function update(input: MultipleSelect) {
-  input.someSelected = input.values.length > 0;
-  input.allSelected = input.values.length === input.selections.length;
+  input.someSelected = input.value.length > 0;
+  input.allSelected = input.value.length === input.selections.length;
+}
+
+function throwOff() {
+  for (let i = 0; i < inputs.value.length; i++) {
+    const input = inputs.value[i]
+    if (input.defaultValue) {
+      input.value = input.defaultValue
+
+      if (input.inputType === 'select multiple') update(input)
+    }
+  }
+  scrollStart()
 }
 
 const inputs = ref<(Input | Select | MultipleSelect | Range)[]>([
-  { label: 'Author', value: '', inputType: 'input', type: 'text' },
-  { label: 'Publisher', value: '', inputType: 'input', type: 'text' },
+  { label: 'Author', value: '', defaultValue: '', inputType: 'input', type: 'text' },
+  { label: 'Publisher', value: '', defaultValue: '', inputType: 'input', type: 'text' },
   {
     label: 'Format', inputType: 'select multiple',
-    values: formats, selections: formats,
+    value: formats, defaultValue: formats, selections: formats,
     someSelected: true, allSelected: true
   },
   {
     label: 'Genre', inputType: 'select multiple',
-    values: bookCategories, selections: bookCategories,
+    value: bookCategories, defaultValue: bookCategories, selections: bookCategories,
     someSelected: true, allSelected: true
   },
-  { label: 'Price', value: [20, 40], inputType: 'range', max: 30000, min: 0, step: 1000 },
+  { label: 'Price', value: [0, 30000], defaultValue: [0, 30000], inputType: 'range', max: 30000, min: 0, step: 1000 },
   {
     label: 'Age Restriction', inputType: 'select multiple',
-    values: ageRestrictions, selections: ageRestrictions,
+    value: ageRestrictions, defaultValue: ageRestrictions, selections: ageRestrictions,
     someSelected: true, allSelected: true
   },
   {
     label: 'Languages', inputType: 'select multiple',
-    values: languages, selections: languages,
+    value: languages, defaultValue: languages, selections: languages,
     someSelected: true, allSelected: true
   },
-  { label: 'Publication Year', value: '', inputType: 'input', type: 'date' },
-  { label: 'Last Circulation', value: '', inputType: 'input', type: 'date' },
+  { label: 'Publication Year', value: [1900, 2024], max: 2024, min: 1900, step: 1, inputType: 'range' },
+  { label: 'Last Circulation', value: [1900, 2024], max: 2024, min: 1900, step: 1, inputType: 'range' },
 
   {
     label: 'Binding', inputType: 'select multiple',
-    values: bindings, selections: bindings,
+    value: bindings, defaultValue: bindings, selections: bindings,
     someSelected: true, allSelected: true
   },
 ])

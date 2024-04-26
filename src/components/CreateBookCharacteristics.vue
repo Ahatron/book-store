@@ -19,7 +19,7 @@
         density="comfortable" />
       <v-select v-else-if="character.inputType === 'select multiple'"
         class="flex-column"
-        v-model="character.values"
+        v-model="character.value"
         :label="character.label"
         :items="character.selections"
         variant="outlined"
@@ -54,7 +54,7 @@ const characterInputs = ref<(Input | Select | MultipleSelect)[]>([
     selections: appStore.bookCategories, rules: [rules.required]
   },
   {
-    label: "Format", values: ['Book'], inputType: 'select multiple',
+    label: "Format", value: ['Book'], inputType: 'select multiple',
     selections: ['Book', 'E-Book'], rules: [rules.required]
   },
   { label: "Weight", value: '', inputType: 'input', type: "text", },

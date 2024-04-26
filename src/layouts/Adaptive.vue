@@ -3,7 +3,7 @@
 
   <v-main class="d-flex bg-grey-lighten-3">
     <AdaptiveContainer>
-      <v-sheet class="pa-2 pa-sm-4 pa-md-8 pt-2 pt-sm-4 pt-md-4 rounded">
+      <v-sheet class="pa-2 pa-sm-3 pa-md-4 pt-sm-4 rounded">
         <RouterView />
       </v-sheet>
     </AdaptiveContainer>

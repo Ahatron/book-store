@@ -14,10 +14,20 @@
 
     <template #default>
       <AdaptiveContainer @click="searchStore.dialog = false">
-        <SearchDialogInput />
-        <v-sheet height="550"
-          @click.stop
-          class="w-100 overflow-y-visible">
+        <v-sheet @click.stop
+          class="w-100 px-3 pb-2"
+          style="">
+          <div class="d-flex align-center pa-2 pl-0">
+            <v-btn @click="searchStore.dialog = false"
+              class="mr-5"
+              flat
+              icon>
+              <v-icon>mdi-arrow-left</v-icon>
+              <v-spacer></v-spacer>
+            </v-btn>
+            <h2>Fast search</h2>
+          </div>
+          <SearchDialogInput variant="outlined" />
           <v-tabs v-model="searchStore.dialogTab"
             density="compact"
             fixed-tabs>
@@ -32,20 +42,22 @@
             </v-tab>
           </v-tabs>
           <v-window v-model="searchStore.dialogTab"
-            class="h-100 overflow-y-visible">
-            <v-window-item class="h-100 overflow-y-visible"
+            class="overflow-y-visible"
+            style="height: 70vh">
+            <v-window-item class="h-100"
               value="book">
               <BookList @click="searchStore.dialog = false"
                 class="h-100 overflow-y-visible" />
             </v-window-item>
-            <v-window-item class="h-100 overflow-y-visible"
+            <v-window-item class="h-100"
               value="author">
               <AuthorList @click="searchStore.dialog = false"
                 class="h-100 overflow-y-visible" />
             </v-window-item>
-            <v-window-item class="h-100 overflow-y-visible"
+            <v-window-item class="h-100"
               value="publisher">
-              <PublisherList @click="searchStore.dialog = false" />
+              <PublisherList @click="searchStore.dialog = false"
+                class="h-100 overflow-y-visible" />
             </v-window-item>
           </v-window>
         </v-sheet>

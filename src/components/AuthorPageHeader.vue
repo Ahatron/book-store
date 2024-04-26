@@ -14,6 +14,7 @@
     <div class="d-flex justify-center ">
       <v-btn v-if="!appStore.isUserAdmin"
         @click="subscribed = !subscribed"
+        variant="tonal"
         color="accent"
         :append-icon="subscribed ? 'mdi-bell-ring' : 'mdi-bell'">
         {{ subscribed ? "Subscribed" : 'Subscribe' }}</v-btn>

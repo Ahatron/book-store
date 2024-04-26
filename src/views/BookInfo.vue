@@ -6,8 +6,8 @@
     <BookInfoCharacteristics />
     <v-divider class="mb-5" />
 
-    <h3 class=" ml-4 mb-4">Description</h3>
-    <p class="mb-4 px-2">
+    <h3 class=" ml-6 mb-4">Description</h3>
+    <p class="mb-4 pl-4">
       Айн Рэнд (1905-1982) — наша бывшая соотечественница, ставшая крупнейшей американской писательницей.
       Автор
       четырех романов-бестселлеров и многочисленных статей. Создатель философской концепции, в основе которой
@@ -17,12 +17,12 @@
     </p>
     <v-divider class="mb-5" />
 
-    <h3 class=" mb-4 ml-4">Rating overview</h3>
+    <h3 class=" mb-4 ml-6">Rating overview</h3>
     <BookInfoRatings class="mb-5" />
     <v-divider class="mb-5" />
 
 
-    <h3 class=" mb-4 ml-4">Comments</h3>
+    <h3 class=" mb-4 ml-6">Comments</h3>
     <BookInfoComments />
   </div>
 </template>

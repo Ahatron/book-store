@@ -4,8 +4,9 @@
     :width="smAndUp ? 500 : 300"
     temporary
     location="right">
-    <div class="d-flex mb-2">
+    <div class="d-flex pa-2">
       <v-btn @click="searchStore.drawer = false"
+        density="compact"
         flat
         icon>
         <v-icon>mdi-arrow-left</v-icon>
