@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 
-import { useSearchStore } from '@/store/search';
+import { useSearchStore } from '@/stores/search.ts';
 import { useDisplay } from 'vuetify/lib/framework.mjs';
 import SearchBookFilter from '@/components/SearchBookFilter.vue';
 

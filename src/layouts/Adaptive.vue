@@ -7,7 +7,7 @@
         <RouterView />
       </v-sheet>
     </AdaptiveContainer>
-  </v-main>
+  </v-main> 
 
 </template>
 

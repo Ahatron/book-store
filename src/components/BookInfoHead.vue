@@ -84,8 +84,8 @@
 
 <script setup lang="ts">
 import BookInfoHeadImages from '@/components/BookInfoHeadImages.vue'
-import { useAppStore } from '@/store/app';
-import { useBookInfoStore } from '@/store/book-info';
+import { useAppStore } from '@/stores/app';
+import { useBookInfoStore } from '@/stores/book-info';
 
 const bookInfoStore = useBookInfoStore()
 const appStore = useAppStore()

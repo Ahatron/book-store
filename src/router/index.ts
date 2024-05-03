@@ -1,24 +1,33 @@
-// Composables
-import { RouteRecordRaw, createRouter, createWebHistory } from 'vue-router'
+/**
+ * router/index.ts
+ *
+ * Automatic routes for `./src/pages/*.vue`
+ */
 
-import Home from '@/views/Home.vue'
-import SearchBook from '@/views/SearchBook.vue'
+// Composables
+import { createRouter, createWebHistory } from 'vue-router'
+
+import Home from '@/pages/Home.vue'
+import SearchBook from '@/pages/SearchBook.vue'
 import SearchBookFilter from '@/components/SearchBookFilter.vue'
 import SearchBookFilterDrawer from '@/components/SearchBookFilterDrawer.vue'
-import AuthPage from '@/views/AuthPage.vue'
-import LoginPage from '@/views/LoginPage.vue'
-import BookInfo from '@/views/BookInfo.vue'
-import BookEdit from '@/views/BookEdit.vue'
+import AuthPage from '@/pages/AuthPage.vue'
+import LoginPage from '@/pages/LoginPage.vue'
+import BookInfo from '@/pages/BookInfo.vue'
+import BookEdit from '@/pages/BookEdit.vue'
 import BookInfoSidebar from '@/components/BookInfoSidebar.vue'
-import AuthorPage from '@/views/AuthorPage.vue'
-import AuthorEdit from '@/views/AuthorEdit.vue'
-import CreateBook from '@/views/CreateBook.vue'
-import CreateAuthor from '@/views/CreateAuthor.vue'
+import AuthorPage from '@/pages/AuthorPage.vue'
+import AuthorEdit from '@/pages/AuthorEdit.vue'
+import CreateBook from '@/pages/CreateBook.vue'
+import CreateAuthor from '@/pages/CreateAuthor.vue'
 import Adaptive from '@/layouts/Adaptive.vue'
 import AdaptiveLeftSidebar from '@/layouts/AdaptiveLeftSidebar.vue'
 import AdaptiveRightSidebar from '@/layouts/AdaptiveRightSidebar.vue'
 import SearchDialog from '@/components/SearchDialog.vue'
-import PublisherPage from '@/views/PublisherPage.vue'
+import PublisherPage from '@/pages/PublisherPage.vue'
+import UserPage from '@/pages/UserPage.vue'
+
+import { RouteRecordRaw } from 'vue-router'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -38,6 +47,10 @@ const routes: RouteRecordRaw[] = [
       {
         path: '/login',
         component: LoginPage
+      },
+      {
+        path: '/users/:id',
+        component: UserPage
       },
       {
         path: '/authors/:id',
@@ -90,8 +103,8 @@ const routes: RouteRecordRaw[] = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes,
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: routes,
 })
 
 export default router

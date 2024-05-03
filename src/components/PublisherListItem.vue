@@ -9,7 +9,7 @@
             aspect-ratio="0.9"
             width="80"
             cover
-            src="../assets/AynRand.jpg" />
+            src="../assets/Alpina.png" />
         </v-card>
         <div class="d-flex flex-column justify-space-around mr-2">
           <v-list-item-title>Alphina publisher</v-list-item-title>
@@ -41,7 +41,7 @@
 </template>
 
 <script setup lang="ts">
-import { useAppStore } from '@/store/app';
+import { useAppStore } from '@/stores/app';
 import { ref } from 'vue';
 
 const subscribed = ref(false)

@@ -35,8 +35,8 @@
 
 <script setup lang="ts">
 import MyInput from '@/components/UI/MyInput.vue';
-import { useAppStore } from '@/store/app';
-import { useSearchStore } from '@/store/search';
+import { useAppStore } from '@/stores/app';
+import { useSearchStore } from '@/stores/search';
 const appStore = useAppStore()
 const searchStore = useSearchStore()
 </script>

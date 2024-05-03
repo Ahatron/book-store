@@ -63,7 +63,8 @@
         </template>
 
 
-        <v-btn icon>
+        <v-btn to="/users/1"
+          icon>
           <v-icon>mdi-account</v-icon>
           <v-tooltip activator="parent"
             location="bottom">Your profile</v-tooltip>
@@ -85,8 +86,8 @@
 <script setup lang="ts">
 import MyInput from '@/components/UI/MyInput.vue';
 import SearchDialog from '@/components/SearchDialog.vue'
-import { useAppStore } from '@/store/app';
-import { useSearchStore } from '@/store/search';
+import { useAppStore } from '@/stores/app';
+import { useSearchStore } from '@/stores/search';
 import { useDisplay } from 'vuetify'
 const { xs } = useDisplay()
 const appStore = useAppStore()

@@ -22,8 +22,8 @@
 import ViewToggle from '@/components/UI/ViewToggle.vue';
 import BookList from '@/components/BookList.vue';
 import BookGrid from '@/components/BookGrid.vue'
-import { useAppStore } from '@/store/app';
-import SortBySelect from './UI/SortBySelect.vue';
+import { useAppStore } from '@/stores/app';
+import SortBySelect from '@/components/UI/SortBySelect.vue';
 
 const appStore = useAppStore()
 </script>

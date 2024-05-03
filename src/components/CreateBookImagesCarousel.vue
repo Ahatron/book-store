@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { useCreateBookStore } from '@/store/create-book';
+import { useCreateBookStore } from '@/stores/create-book';
 import { ref } from 'vue';
 import { useDisplay } from 'vuetify/lib/framework.mjs';
 

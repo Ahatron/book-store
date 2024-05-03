@@ -41,7 +41,7 @@ import CreateAuthorImage from '@/components/CreateAuthorImage.vue';
 import MyInput from '@/components/UI/MyInput.vue';
 
 import { ref } from 'vue';
-import { Input, Select } from '@/types/CharacterInput';
+import { Input, Select } from '@/types/CharacterInput.ts';
 
 const rules = {
   required: (value: string) => !!value || 'Field is required',

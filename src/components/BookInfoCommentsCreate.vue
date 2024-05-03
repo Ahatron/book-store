@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-import { useBookInfoStore, BookRating } from '@/store/book-info';
+import { useBookInfoStore, BookRating } from '@/stores/book-info';
 import { ref } from 'vue';
 
 const bookInfoStore = useBookInfoStore()

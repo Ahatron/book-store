@@ -71,8 +71,8 @@ import SearchDialogInput from '@/components/UI/SearchDialogInput.vue'
 import BookList from '@/components/BookList.vue';
 import AuthorList from '@/components/AuthorList.vue';
 import PublisherList from '@/components/PublisherList.vue';
-import AdaptiveContainer from './AdaptiveContainer.vue';
-import { useSearchStore } from '@/store/search';
+import AdaptiveContainer from '@/components/AdaptiveContainer.vue';
+import { useSearchStore } from '@/stores/search';
 
-const searchStore = useSearchStore()
+const searchStore = useSearchStore() 
 </script>

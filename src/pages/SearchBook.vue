@@ -31,7 +31,7 @@
 <script setup lang="ts">
 import MyInput from '@/components/UI/MyInput.vue';
 import BookView from '@/components/BookView.vue';
-import { useSearchStore } from '@/store/search';
+import { useSearchStore } from '@/stores/search.ts';
 import { useDisplay } from 'vuetify/lib/framework.mjs';
 import { ref } from 'vue';
 

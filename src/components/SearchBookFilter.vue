@@ -74,7 +74,7 @@
 </template>
 
 <script setup lang="ts">
-import { useAppStore } from '@/store/app';
+import { useAppStore } from '@/stores/app';
 import MyInput from '@/components/UI/MyInput.vue';
 import { ref } from 'vue';
 import { Input, Select, Range, MultipleSelect } from '@/types/CharacterInput'

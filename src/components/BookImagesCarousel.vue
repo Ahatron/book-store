@@ -22,7 +22,7 @@
 
 <script setup
   lang="ts">
-  import { useBookInfoStore } from '@/store/book-info';
+  import { useBookInfoStore } from '@/stores/book-info';
   import { ref } from 'vue';
   import { useDisplay } from 'vuetify/lib/framework.mjs';
 

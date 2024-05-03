@@ -77,7 +77,7 @@
 <script setup lang="ts">
 import BookInfoCommentsCreate from '@/components/BookInfoCommentsCreate.vue'
 import CommentPromotion from '@/components/CommentPromotion.vue'
-import { useBookInfoStore } from '@/store/book-info'
+import { useBookInfoStore } from '@/stores/book-info'
 import { ref } from 'vue'
 
 

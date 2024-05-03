@@ -48,7 +48,7 @@
 
 <script setup lang="ts">
 import CreateBookImagesCarousel from '@/components/CreateBookImagesCarousel.vue';
-import { useCreateBookStore } from '@/store/create-book';
+import { useCreateBookStore } from '@/stores/create-book';
 import { ref } from 'vue';
 
 const createBookStore = useCreateBookStore()

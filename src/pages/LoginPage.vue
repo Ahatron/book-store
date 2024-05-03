@@ -2,17 +2,22 @@
   <v-form @submit.prevent
     fast-fail
     validate-on="submit"
-    class="d-flex flex-column h-100 pt-15">
-    <div class="d-flex justify-center mb-10 mr-1">
+    class="d-flex flex-column h-100 py-5">
+    <div class="d-flex justify-center mb-5 mr-1">
       <h2>Login</h2>
     </div>
+    <div>
+      <router-link to="auth"
+        class="text-grey-darken-1 ml-2 mb-2">No account? Registration.</router-link>
+    </div>
+
     <div class="mb-5">
       <MyInput v-model="nickname"
         required
         type="input"
         variant="outlined"
-        name="nikname"
-        label="Your nickname"
+        name="name"
+        label="Your name"
         :rules="[required]" />
       <MyInput v-model="password"
         required
@@ -25,8 +30,6 @@
         :rules="[required]" />
     </div>
     <div class="d-flex">
-      <router-link to="auth"
-        class="text-grey-darken-1">No account? Registration.</router-link>
       <v-spacer />
       <v-btn @submit="'ok'"
         type="submit"

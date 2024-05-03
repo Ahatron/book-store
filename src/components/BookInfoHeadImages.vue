@@ -26,7 +26,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import BookImagesCarousel from '@/components/BookImagesCarousel.vue'
-import { useBookInfoStore } from '@/store/book-info'
+import { useBookInfoStore } from '@/stores/book-info'
 
 const bookInfoStore = useBookInfoStore()
 const ImagesForShow = ref(bookInfoStore.images.slice(0, 4))
