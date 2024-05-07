@@ -12,22 +12,24 @@
     </div>
 
     <div class="mb-5">
-      <MyInput v-model="nickname"
+      <MyInput v-model="userEmail"
         required
+        :error="v$.userEmail.$error"
+        :error-messages="v$.userEmail.$errors.length ? v$.name.$errors[0].$message : ''"
         type="input"
         variant="outlined"
         name="name"
-        label="Your name"
-        :rules="[required]" />
+        label="Your name" />
       <MyInput v-model="password"
         required
         @click:append-inner="show = !show"
         :append-inner-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+        :error="v$.password.$error"
+        :error-messages="v$.password.$errors.length ? v$.name.$errors[0].$message : ''"
         :type="show ? 'text' : 'password'"
         variant="outlined"
         name="password"
-        label="Your password"
-        :rules="[required]" />
+        label="Your password" />
     </div>
     <div class="d-flex">
       <v-spacer />
@@ -41,9 +43,24 @@
 <script setup lang="ts">
 import MyInput from '@/components/UI/MyInput.vue';
 import { ref } from 'vue';
+import useVuelidate from '@vuelidate/core';
+import { minLength, required, alpha, email, numeric, sameAs } from '@vuelidate/validators'
 
-const nickname = ref<string>('')
+
+const userEmail = ref<string>('')
 const password = ref<string>('')
 const show = ref(false)
-const required = (value: string) => !!value || 'Field is required'
+
+const rules = computed(() => ({
+  userEmail: {
+    required,
+    email
+  },
+  password: {
+    required
+  }
+}))
+
+const v$ = useVuelidate(rules, { userEmail, password })
+
 </script>

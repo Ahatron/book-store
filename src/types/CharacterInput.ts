@@ -1,13 +1,14 @@
 type InputLabels = 'Name' | 'Surname' | 'Birth date' |
   'Death date' | 'Author' | 'Publisher' | 'Publication Year' |
-  'Last Circulation' | 'Price' | 'Weight' | 'Width' | 'Height' | 'Series' | 'ISBN'
+  'Last Circulation' | 'Price' | 'Weight' | 'Width' |
+  'Height' | 'Series' | 'ISBN' | 'Phone' | 'Email' | 'Password' | 'Retry password'
 
 export interface Input {
   label: InputLabels,
   value: string,
   defaultValue?: string,
   inputType: 'input'
-  type: 'text' | 'date' | 'number',
+  type: 'text' | 'date' | 'number' | 'password',
   required?: boolean,
   rules?: Function[],
   min?: number,
@@ -15,6 +16,11 @@ export interface Input {
   restriction?: Function,
   placeholder?: string,
 }
+
+export interface Inputs {
+  [key: string]: Input | Select | Range | MultipleSelect
+}
+
 
 type SelectLabels = 'Age Restriction' | 'Format' |
   'Binding' | 'Genre' | 'Gender' | 'Languages'
