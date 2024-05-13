@@ -147,8 +147,4 @@ const v$ = useVuelidate(rules, { inputs })
 //   if (validChars) name.value = validChars[0]
 // }
 
-// function validPasswordCharacters() {
-//   const validChars = password.value.match(/([a-z]|\d|\[|\]|\^|\$|\.|\||\?|\*|\+|\(|\)|@|&|%|#|!|-|_)+/iu)
-//   if (validChars) password.value = validChars[0]
-// }
 </script>

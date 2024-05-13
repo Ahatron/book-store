@@ -31,15 +31,18 @@
           variant="filled"></v-file-input>
       </v-sheet>
     </div>
+    <p v-if="v$.imageURL.$error"
+      class="text-red-darken-2 ml-2">{{ v$.imageURL.$errors[0].$message }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
+import { useCreateAuthorStore } from '@/stores/create-author';
 import { ref } from 'vue';
 
 const imageInput = ref<HTMLInputElement>()
 const image = ref<null | any>(null)
-const imageURL = ref<null | any>(null)
+const { imageURL, v$ } = useCreateAuthorStore()
 
 function uploadImage() {
   imageInput.value?.click()

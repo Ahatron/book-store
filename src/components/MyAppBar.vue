@@ -42,7 +42,7 @@
           <v-btn icon>
             <v-icon>mdi-cart</v-icon>
             <v-tooltip activator="parent"
-              location="bottom">Books for shopping</v-tooltip>
+              location="bottom">Books in cart</v-tooltip>
           </v-btn>
         </template>
 

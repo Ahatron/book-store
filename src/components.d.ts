@@ -7,8 +7,12 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    AdaptiveContainer: typeof import('./components/AdaptiveContainer.vue')['default']
-    AdaptiveSidebar: typeof import('./components/AdaptiveSidebar.vue')['default']
+    AdaptiveCol: typeof import('./layouts/AdaptiveCol.vue')['default']
+    AdaptiveContainer: typeof import('./layouts/AdaptiveContainer.vue')['default']
+    AdaptiveContainerRow: typeof import('./components/AdaptiveContainerRow.vue')['default']
+    AdaptiveRightSidebar: typeof import('./layouts/AdaptiveRightSidebarLayout.vue')['default']
+    AdaptiveRow: typeof import('./layouts/AdaptiveRow.vue')['default']
+    AdaptiveSidebar: typeof import('./layouts/AdaptiveSidebar.vue')['default']
     AuthorList: typeof import('./components/AuthorList.vue')['default']
     AuthorListItem: typeof import('./components/AuthorListItem.vue')['default']
     AuthorPageHeader: typeof import('./components/AuthorPageHeader.vue')['default']
@@ -34,6 +38,7 @@ declare module 'vue' {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     MyAppBar: typeof import('./components/MyAppBar.vue')['default']
     MyInput: typeof import('./components/UI/MyInput.vue')['default']
+    MySheet: typeof import('./components/MySheet.vue')['default']
     NavDrawer: typeof import('./components/NavDrawer.vue')['default']
     PublisherList: typeof import('./components/PublisherList.vue')['default']
     PublisherListItem: typeof import('./components/PublisherListItem.vue')['default']
@@ -45,6 +50,7 @@ declare module 'vue' {
     SearchDialog: typeof import('./components/SearchDialog.vue')['default']
     SearchDialogInput: typeof import('./components/UI/SearchDialogInput.vue')['default']
     SortBySelect: typeof import('./components/UI/SortBySelect.vue')['default']
+    UserDataForm: typeof import('./components/UserDataForm.vue')['default']
     UserPageHeader: typeof import('./components/UserPageHeader.vue')['default']
     ViewToggle: typeof import('./components/UI/ViewToggle.vue')['default']
   }

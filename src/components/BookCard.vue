@@ -50,7 +50,7 @@
       </template>
 
       <v-btn v-else
-        to="/authors/1/edit"
+        to="/books/1/edit"
         variant="tonal"
         color="grey">
         Edit <v-icon class="ml-2">mdi-pencil</v-icon>

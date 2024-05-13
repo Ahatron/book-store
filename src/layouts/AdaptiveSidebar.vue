@@ -4,10 +4,14 @@
     md="4"
     lg="3"
     class="position-relative">
-    <v-sheet class="pa-2 pa-sm-3 pa-md-4 pt-2 pt-sm-4 pt-md-4 pb-0 pb-sm-0 rounded position-sticky"
+    <MySheet class="pa-sm-3 pt-md-4 pb-0 pb-sm-0 position-sticky"
       style="top: 80px; height: 85vh; overflow-y: auto;"
       tag="aside">
       <slot></slot>
-    </v-sheet>
+    </MySheet>
   </v-col>
 </template>
+
+<script setup lang="ts">
+import MySheet from '@/components/MySheet.vue';
+</script>

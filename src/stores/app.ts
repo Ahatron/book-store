@@ -17,5 +17,14 @@ export const useAppStore = defineStore('app', () => {
     'Biographies',
     'Poetry',
   ]);
-  return { isUserAuth, drawer, viewToggle, bookCategories, isUserAdmin, searchDialog }
+
+  function logout() {
+    isUserAdmin.value = false;
+    isUserAuth.value = false;
+    drawer.value = false;
+    searchDialog.value = false;
+  }
+
+
+  return { isUserAuth, drawer, viewToggle, bookCategories, isUserAdmin, searchDialog, logout }
 })

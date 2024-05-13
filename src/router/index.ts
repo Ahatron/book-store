@@ -81,7 +81,8 @@ const routes: RouteRecordRaw[] = [
       {
         path: '/authors/create',
         component: CreateAuthor
-      }
+      },
+
     ]
   },
   {
@@ -96,7 +97,6 @@ const routes: RouteRecordRaw[] = [
           sidebar: SearchBookFilter
         },
       },
-
     ]
   },
 

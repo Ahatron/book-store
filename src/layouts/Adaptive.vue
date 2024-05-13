@@ -1,16 +1,23 @@
 <template>
   <router-view name="drawer" />
 
-  <v-main class="d-flex bg-grey-lighten-3">
+  <MyMain>
     <AdaptiveContainer>
-      <v-sheet class="pa-2 pa-sm-3 pa-md-4 pt-sm-4 rounded">
-        <RouterView />
-      </v-sheet>
+      <AdaptiveRow>
+        <AdaptiveCol>
+          <MySheet>
+            <RouterView />
+          </MySheet>
+        </AdaptiveCol>
+      </AdaptiveRow>
     </AdaptiveContainer>
-  </v-main> 
-
+  </MyMain>
 </template>
 
 <script setup lang="ts">
-import AdaptiveContainer from '@/components/AdaptiveContainer.vue';
+import AdaptiveCol from '@/layouts/AdaptiveCol.vue';
+import AdaptiveContainer from '@/layouts/AdaptiveContainer.vue';
+import AdaptiveRow from '@/layouts/AdaptiveRow.vue';
+import MySheet from '@/components/MySheet.vue';
+import MyMain from '@/layouts/MyMain.vue';
 </script>

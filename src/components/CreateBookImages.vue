@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-row align-content="center"
+      class="mb-2"
       align-center
       no-gutters>
       <v-col v-for="(src, i) in createBookStore.imagesURL"
@@ -42,6 +43,8 @@
         </v-sheet>
       </v-col>
     </v-row>
+    <p v-if="v$.imagesURL.$error"
+      class="text-red-darken-2 ml-2">{{ v$.imagesURL.$errors[0].$message }}</p>
     <CreateBookImagesCarousel />
   </div>
 </template>
@@ -52,6 +55,7 @@ import { useCreateBookStore } from '@/stores/create-book';
 import { ref } from 'vue';
 
 const createBookStore = useCreateBookStore()
+const { v$ } = createBookStore
 
 const imageInput = ref<HTMLInputElement | null>(null)
 const images = ref<File[]>([])

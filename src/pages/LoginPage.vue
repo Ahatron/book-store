@@ -6,26 +6,32 @@
     <div class="d-flex justify-center mb-5 mr-1">
       <h2>Login</h2>
     </div>
-    <div>
+    <div class="ml-2 mb-4">
       <router-link to="auth"
-        class="text-grey-darken-1 ml-2 mb-2">No account? Registration.</router-link>
+        class="text-grey-darken-1 ">No account? Registration.</router-link>
     </div>
 
     <div class="mb-5">
       <MyInput v-model="userEmail"
         required
+        class="mb-2"
+        density="compact"
+        @blur="v$.userEmail.$touch"
         :error="v$.userEmail.$error"
-        :error-messages="v$.userEmail.$errors.length ? v$.name.$errors[0].$message : ''"
-        type="input"
+        :error-messages="v$.userEmail.$errors.length ? v$.userEmail.$errors[0].$message : ''"
+        type="email"
         variant="outlined"
         name="name"
-        label="Your name" />
+        label="Your email" />
       <MyInput v-model="password"
         required
+        class="mb-2"
+        density="compact"
+        @blur="v$.password.$touch"
         @click:append-inner="show = !show"
         :append-inner-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
         :error="v$.password.$error"
-        :error-messages="v$.password.$errors.length ? v$.name.$errors[0].$message : ''"
+        :error-messages="v$.password.$errors.length ? v$.password.$errors[0].$message : ''"
         :type="show ? 'text' : 'password'"
         variant="outlined"
         name="password"
@@ -34,6 +40,7 @@
     <div class="d-flex">
       <v-spacer />
       <v-btn @submit="'ok'"
+        @click="v$.$touch"
         type="submit"
         color="accent">Login</v-btn>
     </div>

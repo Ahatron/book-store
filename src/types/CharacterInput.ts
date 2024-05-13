@@ -1,7 +1,7 @@
 type InputLabels = 'Name' | 'Surname' | 'Birth date' |
   'Death date' | 'Author' | 'Publisher' | 'Publication Year' |
   'Last Circulation' | 'Price' | 'Weight' | 'Width' |
-  'Height' | 'Series' | 'ISBN' | 'Phone' | 'Email' | 'Password' | 'Retry password'
+  'Height' | 'Series' | 'ISBN' | 'Phone' | 'Email' | 'Password' | 'Retry password' | 'New password'
 
 export interface Input {
   label: InputLabels,
@@ -11,7 +11,8 @@ export interface Input {
   type: 'text' | 'date' | 'number' | 'password',
   required?: boolean,
   rules?: Function[],
-  min?: number,
+  min?: number | string,
+  max?: number | string,
   disabled?: boolean,
   restriction?: Function,
   placeholder?: string,

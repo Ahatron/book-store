@@ -1,11 +1,7 @@
 <template>
   <div>
-    <div class="d-flex align-center">
-      <SortBySelect class="mr-4 w-50" />
-      <v-spacer />
-      <ViewToggle />
-    </div>
-    <div class="d-flex mb-4">
+
+    <div class="d-flex mb-4 ml-4">
       <h3>Found 10</h3>
     </div>
 
@@ -19,11 +15,9 @@
 
 <script setup lang="ts">
 
-import ViewToggle from '@/components/UI/ViewToggle.vue';
 import BookList from '@/components/BookList.vue';
 import BookGrid from '@/components/BookGrid.vue'
 import { useAppStore } from '@/stores/app';
-import SortBySelect from '@/components/UI/SortBySelect.vue';
 
 const appStore = useAppStore()
 </script>

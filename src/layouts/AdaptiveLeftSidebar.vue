@@ -22,6 +22,6 @@
 
 <script setup lang="ts">
 import { useDisplay } from 'vuetify/lib/framework.mjs';
-import AdaptiveSidebar from '@/components/AdaptiveSidebar.vue';
+import AdaptiveSidebar from '@/layouts/AdaptiveSidebar.vue';
 const { xs } = useDisplay()
 </script>

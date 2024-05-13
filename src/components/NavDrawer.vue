@@ -50,7 +50,17 @@
     </v-list>
     <template v-slot:append>
       <div class="pa-2">
-        <v-btn @click="appStore.isUserAuth = false"
+        <v-btn @click="appStore.isUserAdmin = !appStore.isUserAdmin"
+          variant="flat"
+          block>
+          Admin toggle
+        </v-btn>
+        <v-btn @click="appStore.isUserAuth = !appStore.isUserAuth"
+          variant="flat"
+          block>
+          Auth toggle
+        </v-btn>
+        <v-btn @click="appStore.logout"
           variant="flat"
           color="red-accent-2"
           block>
