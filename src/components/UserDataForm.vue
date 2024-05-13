@@ -7,7 +7,7 @@
     <template v-for="(input, key) in inputs"
       :key="key">
       <MyInput v-if="input.inputType === 'input' && input.type !== 'password'"
-        @input="withoutSpaces(key)"
+        @input="withoutSpaces(input)"
         v-model.trim="input.value"
         @blur="input.type !== 'date' && v$.inputs[key].$touch()"
         :placeholder="input.placeholder"
@@ -20,10 +20,10 @@
         :error-messages="input.type !== 'date' && v$.inputs[key].$errors.length ? v$.inputs[key].$errors[0].$message : ''"
         :label="input.label"
         :type="input.type" />
-      <MyInput v-else
+      <MyInput v-else-if="input.inputType === 'input'"
         v-model="input.value"
         class="mb-2"
-        @input="withoutSpaces(key)"
+        @input="withoutSpaces(input)"
         @click:append-inner="showPassword = !showPassword"
         @blur="v$.inputs[key].$touch()"
         :append-inner-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
@@ -55,6 +55,7 @@ import { minLength, required, alpha, email, numeric, sameAs, helpers } from '@vu
 import { ref, computed } from 'vue';
 import { Inputs } from '@/types/CharacterInput';
 import { useUserForm } from '@/stores/user-form';
+import { withoutSpaces } from '@/utils/input-restrictions';
 
 defineProps<{ type: 'change' | 'registration' }>()
 
@@ -125,11 +126,6 @@ const rules = computed(() => ({
 
 const v$ = useVuelidate(rules, { inputs })
 
-function withoutSpaces(key: string | number) {
-  const input = inputs.value[key]
-  if (input.inputType === 'input' && input.value.includes(' ')) {
-    input.value = input.value.replace(/\s/g, '');
-  }
-}
+
 
 </script>

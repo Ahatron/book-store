@@ -19,6 +19,7 @@
           <UserDataForm type="change" />
         </v-window-item>
         <v-window-item value="cart">
+          <CartList />
         </v-window-item>
         <v-window-item value="liked">
         </v-window-item>
@@ -37,6 +38,7 @@ import UserPageHeader from '@/components/UserPageHeader.vue';
 import BookView from '@/components/BookView.vue';
 import { ref } from 'vue';
 import UserDataForm from '@/components/UserDataForm.vue';
+import CartList from '@/components/CartList.vue';
 
 const tab = ref('')
 </script>
