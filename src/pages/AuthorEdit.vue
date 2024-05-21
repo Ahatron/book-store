@@ -41,22 +41,22 @@ import CreateAuthorImage from '@/components/CreateAuthorImage.vue';
 import MyInput from '@/components/UI/MyInput.vue';
 
 import { ref } from 'vue';
-import { Input, Select } from '@/types/CharacterInput.ts';
+import { Input, Select } from '@/types/CharacterInput';
 
-const rules = {
-  required: (value: string) => !!value || 'Field is required',
-}
-
+// const rules = {
+//   required: (value: string) => !!value || 'Field is required',
+// };
+//
 const characterInputs = ref<(Input | Select)[]>([
   {
     value: '', label: 'Name', inputType: 'input', type: 'text',
-    required: true, rules: [rules.required]
+    required: true,
+    // rules: [rules.required]
   },
   { value: '', label: "Surname", inputType: 'input', type: 'text' },
   { value: 'Male', label: "Gender", inputType: 'select', selections: ['Male', 'Female'] },
   { value: '', label: "Birth date", inputType: 'input', type: 'date' },
   { value: '', label: "Death date", inputType: 'input', type: 'date' },
 ])
-
 
 </script>

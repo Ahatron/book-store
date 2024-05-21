@@ -28,6 +28,9 @@ import PublisherPage from '@/pages/PublisherPage.vue'
 import UserPage from '@/pages/UserPage.vue'
 
 import { RouteRecordRaw } from 'vue-router'
+import UserDataForm from '@/components/UserDataForm.vue'
+import CartList from '@/components/CartList.vue'
+import LikeList from '@/components/LikeList.vue'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -50,15 +53,34 @@ const routes: RouteRecordRaw[] = [
       },
       {
         path: '/users/:id',
-        component: UserPage
+        component: UserPage,
+        children: [
+          {
+            path: '',
+            name: 'personal',
+            component: UserDataForm,
+          },
+          {
+            path: 'cart',
+            name: 'cart',
+            component: CartList
+          },
+          {
+            path: 'liked',
+            name: 'liked',
+            component: LikeList
+          }
+        ]
       },
       {
         path: '/authors/:id',
-        component: AuthorPage
-      },
-      {
-        path: '/authors/:id/edit',
-        component: AuthorEdit
+        component: AuthorPage,
+        children: [
+          {
+            path: 'edit',
+            component: AuthorEdit
+          },
+        ]
       },
       {
         path: '/books/:id',

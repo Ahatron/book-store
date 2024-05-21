@@ -57,8 +57,6 @@ import { Inputs } from '@/types/CharacterInput';
 import { useUserForm } from '@/stores/user-form';
 import { withoutSpaces } from '@/utils/input-restrictions';
 
-defineProps<{ type: 'change' | 'registration' }>()
-
 const showPassword = ref(false)
 const userFormStore = useUserForm()
 

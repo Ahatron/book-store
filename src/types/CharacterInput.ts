@@ -1,13 +1,13 @@
 type InputLabels = 'Name' | 'Surname' | 'Birth date' |
   'Death date' | 'Author' | 'Publisher' | 'Publication Year' |
   'Last Circulation' | 'Price' | 'Weight' | 'Width' |
-  'Height' | 'Series' | 'ISBN' | 'Phone' | 'Email' | 'Password' | 'Retry password' | 'New password'
+  'Height' | 'Series' | 'ISBN' | 'Phone' | 'Email' | 'Password' | 'Retry password' | 'New password';
 
 export interface Input {
   label: InputLabels,
   value: string,
   defaultValue?: string,
-  inputType: 'input'
+  inputType: 'input',
   type: 'text' | 'date' | 'number' | 'password',
   required?: boolean,
   rules?: Function[],
@@ -16,25 +16,25 @@ export interface Input {
   disabled?: boolean,
   restriction?: Function,
   placeholder?: string,
-}
+};
 
 export interface Inputs {
   [key: string]: Input | Select | Range | MultipleSelect
-}
+};
 
 
 type SelectLabels = 'Age Restriction' | 'Format' |
-  'Binding' | 'Genre' | 'Gender' | 'Languages'
+  'Binding' | 'Genre' | 'Gender' | 'Languages';
 
 export interface Select {
-  inputType: 'select'
+  inputType: 'select',
   label: SelectLabels,
   value: string,
   defaultValue?: string,
   required?: boolean,
   rules?: Function[],
   selections: string[],
-}
+};
 
 export interface MultipleSelect {
   inputType: 'select multiple',
@@ -45,7 +45,7 @@ export interface MultipleSelect {
   selections: string[],
   someSelected?: boolean,
   allSelected?: boolean,
-}
+};
 
 export interface Range {
   label: string,
@@ -55,4 +55,4 @@ export interface Range {
   value: (number | string)[],
   defaultValue?: (number | string)[],
   inputType: 'range',
-}
+};

@@ -11,13 +11,13 @@
           class="ma-1"
           density="comfortable"
           variant="tonal"
-          icon><v-icon color="white">mdi-close</v-icon></v-btn>
+          icon><v-icon color="white">mdi-close</v-icon>
+        </v-btn>
       </v-img>
       <v-sheet v-else
         class=" d-flex flex-column align-center justify-center rounded-lg"
         @click="uploadImage"
-        height="250"
-        border>
+        height="250">
         <v-icon>mdi-image-plus</v-icon>
         Add image
         <v-file-input v-model="image"

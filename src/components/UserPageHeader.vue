@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex px-5">
+  <div class="d-flex">
     <div class="mr-3 mr-sm-5">
       <v-img class="rounded "
         aspect-ratio="0.8"

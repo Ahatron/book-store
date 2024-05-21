@@ -10,3 +10,7 @@
     </template>
   </v-text-field>
 </template>
+
+<script setup lang="ts">
+//
+</script>

@@ -1,5 +1,5 @@
 <template>
-  <v-list-item class="px-0 px-sm-4 my-1">
+  <v-list-item class="px-0 px-sm-4 py-2">
     <template #default>
       <div class="d-flex">
         <v-card elevation="0"
