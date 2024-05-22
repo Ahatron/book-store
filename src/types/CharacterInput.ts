@@ -6,7 +6,6 @@ type InputLabels = 'Name' | 'Surname' | 'Birth date' |
 export interface Input {
   label: InputLabels,
   value: string,
-  defaultValue?: string,
   inputType: 'input',
   type: 'text' | 'date' | 'number' | 'password',
   required?: boolean,
@@ -16,11 +15,11 @@ export interface Input {
   disabled?: boolean,
   restriction?: Function,
   placeholder?: string,
-};
+}
 
 export interface Inputs {
   [key: string]: Input | Select | Range | MultipleSelect
-};
+}
 
 
 type SelectLabels = 'Age Restriction' | 'Format' |
@@ -30,22 +29,20 @@ export interface Select {
   inputType: 'select',
   label: SelectLabels,
   value: string,
-  defaultValue?: string,
   required?: boolean,
   rules?: Function[],
   selections: string[],
-};
+}
 
 export interface MultipleSelect {
   inputType: 'select multiple',
   label: SelectLabels,
   value: string[],
-  defaultValue?: string[],
   rules?: Function[],
   selections: string[],
   someSelected?: boolean,
   allSelected?: boolean,
-};
+}
 
 export interface Range {
   label: string,
@@ -53,6 +50,5 @@ export interface Range {
   max: number,
   step: number,
   value: (number | string)[],
-  defaultValue?: (number | string)[],
   inputType: 'range',
-};
+}

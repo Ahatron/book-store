@@ -9,7 +9,7 @@
       <v-tab value="Stocks">Stocks</v-tab>
     </v-tabs>
 
-    <div class="d-flex align-center">
+    <div class="d-flex align-center mb-3">
       <SortBySelect class="mr-4 w-50" />
       <v-spacer />
       <ViewToggle />

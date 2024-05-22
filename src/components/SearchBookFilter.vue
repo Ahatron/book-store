@@ -21,14 +21,6 @@
           thumb-label />
       </div>
 
-      <v-select v-else-if="input.inputType === 'select'"
-        v-model="input.value"
-        :label="input.label"
-        class="flex-column"
-        :items="input.selections"
-        variant="outlined"
-        density="compact" />
-
       <v-select v-else-if="input.inputType === 'select multiple'"
         v-model="input.value"
         :label="input.label"
@@ -102,37 +94,41 @@ function update(input: MultipleSelect) {
 function throwOff() {
   for (let i = 0; i < inputs.value.length; i++) {
     const input = inputs.value[i]
-    if (input.defaultValue) {
-      input.value = input.defaultValue
 
-      if (input.inputType === 'select multiple') update(input)
+    if (input.inputType === 'input') {
+      input.value = ''
+    } else if (input.inputType === 'range') {
+      input.value = [input.min, input.max]
+    } else {
+      input.value = input.selections
+      update(input)
     }
   }
   scrollStart()
 }
 
-const inputs = ref<(Input | Select | MultipleSelect | Range)[]>([
-  { label: 'Author', value: '', defaultValue: '', inputType: 'input', type: 'text' },
-  { label: 'Publisher', value: '', defaultValue: '', inputType: 'input', type: 'text' },
+const inputs = ref<(Input | MultipleSelect | Range)[]>([
+  { label: 'Author', value: '', inputType: 'input', type: 'text' },
+  { label: 'Publisher', value: '', inputType: 'input', type: 'text' },
   {
     label: 'Format', inputType: 'select multiple',
-    value: formats, defaultValue: formats, selections: formats,
+    value: formats, selections: formats,
     someSelected: true, allSelected: true
   },
   {
     label: 'Genre', inputType: 'select multiple',
-    value: bookCategories, defaultValue: bookCategories, selections: bookCategories,
+    value: bookCategories, selections: bookCategories,
     someSelected: true, allSelected: true
   },
-  { label: 'Price', value: [0, 30000], defaultValue: [0, 30000], inputType: 'range', max: 30000, min: 0, step: 1000 },
+  { label: 'Price', value: [0, 30000], inputType: 'range', max: 30000, min: 0, step: 1000 },
   {
     label: 'Age Restriction', inputType: 'select multiple',
-    value: ageRestrictions, defaultValue: ageRestrictions, selections: ageRestrictions,
+    value: ageRestrictions, selections: ageRestrictions,
     someSelected: true, allSelected: true
   },
   {
     label: 'Languages', inputType: 'select multiple',
-    value: languages, defaultValue: languages, selections: languages,
+    value: languages, selections: languages,
     someSelected: true, allSelected: true
   },
   { label: 'Publication Year', value: [1900, 2024], max: 2024, min: 1900, step: 1, inputType: 'range' },
@@ -140,7 +136,7 @@ const inputs = ref<(Input | Select | MultipleSelect | Range)[]>([
 
   {
     label: 'Binding', inputType: 'select multiple',
-    value: bindings, defaultValue: bindings, selections: bindings,
+    value: bindings, selections: bindings,
     someSelected: true, allSelected: true
   },
 ])

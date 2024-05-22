@@ -26,11 +26,16 @@ import AdaptiveRightSidebar from '@/layouts/AdaptiveRightSidebar.vue'
 import SearchDialog from '@/components/SearchDialog.vue'
 import PublisherPage from '@/pages/PublisherPage.vue'
 import UserPage from '@/pages/UserPage.vue'
-
 import { RouteRecordRaw } from 'vue-router'
 import UserDataForm from '@/components/UserDataForm.vue'
 import CartList from '@/components/CartList.vue'
 import LikeList from '@/components/LikeList.vue'
+import SubscriptionsList from '@/components/SubscriptionsList.vue'
+import AuthorList from '@/components/AuthorList.vue'
+import PublisherList from '@/components/PublisherList.vue'
+import NotFoundPage from '@/pages/NotFoundPage.vue'
+import NotifyList from '@/components/NotifyList.vue'
+import HomeHeader from '@/components/HomeHeader.vue'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -41,7 +46,10 @@ const routes: RouteRecordRaw[] = [
     children: [
       {
         path: '/',
-        component: Home
+        components: {
+          default: Home,
+          header: HomeHeader
+        }
       },
       {
         path: '/auth',
@@ -56,7 +64,7 @@ const routes: RouteRecordRaw[] = [
         component: UserPage,
         children: [
           {
-            path: '',
+            path: 'personal',
             name: 'personal',
             component: UserDataForm,
           },
@@ -69,6 +77,17 @@ const routes: RouteRecordRaw[] = [
             path: 'liked',
             name: 'liked',
             component: LikeList
+          },
+          {
+            path: 'subscriptions',
+            // redirect: 'subscriptions/authors',
+            name: 'subscriptions',
+            component: SubscriptionsList,
+          },
+          {
+            path: 'notifications',
+            name: 'notifications',
+            component: NotifyList
           }
         ]
       },
@@ -121,7 +140,7 @@ const routes: RouteRecordRaw[] = [
       },
     ]
   },
-
+  { path: '/:pathMatch(.*)*', name: 'not-found', component: NotFoundPage },
 ]
 
 const router = createRouter({

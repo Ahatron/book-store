@@ -19,10 +19,11 @@
               Atlas shrugged
             </v-list-item-title>
             <v-list-item-subtitle>Ayn Rand</v-list-item-subtitle>
+            <span class="d-flex mt-1">5<v-icon class="ml-1"
+                color="yellow">mdi-star</v-icon></span>
           </div>
 
-          <span class="d-flex">5<v-icon class="ml-1"
-              color="yellow">mdi-star</v-icon></span>
+
           <span class="">
             <h4>5000тг</h4>
           </span>

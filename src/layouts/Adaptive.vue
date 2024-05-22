@@ -2,9 +2,12 @@
   <router-view name="drawer" />
 
   <MyMain>
+    <router-view name="header" />
+
     <AdaptiveContainer>
       <AdaptiveRow>
         <AdaptiveCol>
+
           <MySheet>
             <RouterView />
           </MySheet>

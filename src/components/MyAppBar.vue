@@ -1,5 +1,7 @@
 <template>
   <v-app-bar color="teal-darken-4"
+    scroll-behavior="hide elevate fade-image"
+    scroll-threshold="500"
     image="https://picsum.photos/1920/1080?random">
     <template v-slot:image>
       <v-img gradient="to top right, rgba(19,84,122,.8), rgba(128,208,199,.8)"></v-img>
@@ -25,7 +27,8 @@
 
     <template #append>
 
-      <v-btn icon>
+      <v-btn to="/users/1/notifications"
+        icon>
         <v-icon>mdi-bell</v-icon>
         <v-tooltip activator="parent"
           location="bottom">Notifications</v-tooltip>
@@ -33,13 +36,15 @@
 
       <template v-if="appStore.isUserAuth">
         <template v-if="!appStore.isUserAdmin">
-          <v-btn icon>
+          <v-btn to="/users/1/liked"
+            icon>
             <v-icon>mdi-heart</v-icon>
             <v-tooltip activator="parent"
               location="bottom">Liked books</v-tooltip>
           </v-btn>
 
-          <v-btn icon>
+          <v-btn to="/users/1/cart"
+            icon>
             <v-icon>mdi-cart</v-icon>
             <v-tooltip activator="parent"
               location="bottom">Books in cart</v-tooltip>
@@ -63,7 +68,7 @@
         </template>
 
 
-        <v-btn to="/users/1"
+        <v-btn to="/users/1/personal"
           icon>
           <v-icon>mdi-account</v-icon>
           <v-tooltip activator="parent"

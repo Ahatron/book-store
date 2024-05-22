@@ -9,7 +9,7 @@
         class="mb-2"
         v-model="tab">
         <v-tab value="personal"
-          to="/users/1">Personal data</v-tab>
+          to="/users/1/personal">Personal data</v-tab>
         <v-tab value="cart"
           to="/users/1/cart">Cart</v-tab>
         <v-tab value="liked"
@@ -17,7 +17,7 @@
         <v-tab value="subscriptions"
           to="/users/1/subscriptions">Subscriptions</v-tab>
         <v-tab value="notifications"
-          to="/users/1/notifications">notifications</v-tab>
+          to="/users/1/notifications">Notifications</v-tab>
       </v-tabs>
 
       <router-view v-slot="{ Component }">
@@ -33,11 +33,7 @@
 <script setup lang="ts">
 import UserPageHeader from '@/components/UserPageHeader.vue';
 import { onBeforeRouteUpdate } from 'vue-router'
-import BookView from '@/components/BookView.vue';
 import { ref } from 'vue';
-import UserDataForm from '@/components/UserDataForm.vue';
-import CartList from '@/components/CartList.vue';
-import { RouteRecordName } from 'vue-router/auto';
 
 type FadeName = 'slide-left' | 'slide-right'
 const tabs = ['personal', 'cart', 'liked', 'subscribtions', 'notifications']
@@ -53,8 +49,6 @@ onBeforeRouteUpdate((to, from) => {
     if (to?.name) return item.includes(to.name.toString())
     return -1
   })
-
-  console.log(fromIndex, toIndex)
 
   if (fromIndex < toIndex) fadeName.value = 'slide-left'
   else fadeName.value = 'slide-right'

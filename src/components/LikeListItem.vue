@@ -55,11 +55,8 @@
 </template>
 
 <script setup lang="ts">
-import { useAppStore } from '@/stores/app';
 import { ref } from 'vue';
 
 const isHover = ref(false)
-
 const cartActive = ref(false)
-const appStore = useAppStore()
 </script>

@@ -5,9 +5,8 @@
       <h3>Found 10</h3>
     </div>
 
-
     <BookGrid v-if="appStore.viewToggle === 'grid'"
-      class="pa-1 pa-sm-2" />
+      class="ma-1 ma-sm-2" />
     <BookList v-else
       class="elevation-0 px-sm-5" />
   </div>

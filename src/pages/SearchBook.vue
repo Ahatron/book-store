@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="d-flex flex-column">
-      <h2 class="ml-1">Advanced search books</h2>
+      <h3 class="ml-4 mb-1">Advanced search books</h3>
 
       <div class="d-flex justify-center align-center">
         <MyInput class="mr-2 mb-2"
@@ -23,6 +23,8 @@
           <v-icon>mdi-filter</v-icon>
         </v-btn>
       </div>
+      <SortBySelect class="mb-4" />
+
     </div>
     <BookView />
   </div>
@@ -31,12 +33,10 @@
 <script setup lang="ts">
 import MyInput from '@/components/UI/MyInput.vue';
 import BookView from '@/components/BookView.vue';
-import { useSearchStore } from '@/stores/search.ts';
-import { useDisplay } from 'vuetify/lib/framework.mjs';
-import { ref } from 'vue';
+import { useSearchStore } from '@/stores/search';
+import { useDisplay } from 'vuetify';
+import SortBySelect from '@/components/UI/SortBySelect.vue';
 
 const { xs } = useDisplay()
 const searchStore = useSearchStore()
-
-
 </script>

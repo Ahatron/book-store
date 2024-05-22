@@ -5,13 +5,9 @@
       :items="selections"
       density="compact"
       label="Sort by"
-      variant="outlined">
-      <template>
-        <slot class="d-flex flex-column"></slot>
-      </template>
-    </v-select>
+      variant="outlined"
+      hide-details />
     <v-btn @click="orderInAscending = !orderInAscending"
-      class="mb-1"
       variant="flat"
       density="comfortable"
       rounded="sm"
