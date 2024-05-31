@@ -1,6 +1,4 @@
 <template>
-  <router-view name="drawer" />
-
   <MyMain>
     <router-view name="header" />
 

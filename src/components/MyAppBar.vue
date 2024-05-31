@@ -1,10 +1,11 @@
 <template>
-  <v-app-bar color="teal-darken-4"
+  <v-app-bar color="primary"
+    rounded
     scroll-behavior="hide elevate fade-image"
     scroll-threshold="500"
     image="https://picsum.photos/1920/1080?random">
     <template v-slot:image>
-      <v-img gradient="to top right, rgba(19,84,122,.8), rgba(128,208,199,.8)"></v-img>
+      <v-img gradient="to top right, rgba(0,50,100,.8), rgba(0,50,100,.8)"></v-img>
     </template>
 
     <template v-slot:prepend>
@@ -21,11 +22,10 @@
         location="bottom">Home page</v-tooltip>
     </v-app-bar-title>
 
-    <v-spacer v-show="!xs"></v-spacer>
-
-    <SearchDialog />
+    <!-- <v-spacer v-show="!xs"></v-spacer> -->
 
     <template #append>
+      <SearchDialog />
 
       <v-btn to="/users/1/notifications"
         icon>
